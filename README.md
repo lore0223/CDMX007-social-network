@@ -3,8 +3,7 @@
 ## Preámbulo
 
 Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
-vivir sin ellas.
+sociales han invadido nuestras vidas. Las amamos y/u odiamos, y muchos no podemos vivir sin ellas.
 
 Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
 en una ronda de financiamiento con inversionistas, se presentó una red social
@@ -49,9 +48,9 @@ Dicho en palabras sencillas, aprenderás a:
 
 Este proyecto se debe "resolver" en tríos.
 
-La lógica del proyecto debe estar implementada completamente en JavaScript (ES6+),
+La lógica del proyecto debe estar implementada completamente en JavaScript (ES6),
 HTML y CSS :smiley:. Para este proyecto no está permitido utilizar
-frameworks o librerías de CSS y JS.
+frameworks o librerías de JS.
 
 Para comenzar tendrás que hacer un _fork_ y _clonar_ este
 repositorio.
@@ -124,7 +123,7 @@ La interfaz debe permitir lo siguiente:
 
 * Login con Firebase:
   - Para el login y las publicaciones en el muro puedes utilizar [Firebase](https://firebase.google.com/products/database/)
-  - Autenticación con Facebook - Google.
+  - Autenticación con Facebook y/o Google y/o Email.
 * Validaciones:
   - No pueden haber usuarios repetidos.
   - La cuenta de usuario debe ser un correo electrónico válido.
@@ -275,51 +274,51 @@ puedas haber encontrado en el camino.
 
 ### Tech
 
-| Habilidad | Nivel esperado |
+| Habilidad |  |
 |-----------|----------------|
 | **JavaScript** | |
-| Estilo | 3
-| Nomenclatura/semántica | 3
-| Funciones/modularidad | 2
-| Estructuras de datos | 2
-| Tests | 2
+| Estilo | 
+| Nomenclatura/semántica | 
+| Funciones/modularidad | 
+| Estructuras de datos | 
+| Tests | 
 | **HTML** | |
-| Validación | 3
-| Estilo | 3
-| Semántica | 3
-| SEO | n/a
+| Validación | 
+| Estilo | 
+| Semántica | 
+| SEO | N/A
 | **CSS** | |
-| DRY | 3
-| Responsive | 3
+| DRY | 
+| Responsive | 
 | **SCM** | |
-| Git | 3
-| GitHub | 3
-| **CS** | |
-| Lógica | 2
-| Arquitectura | 2
+| Git | 
+| GitHub | 
+| **CS** | 
+| Lógica | 
+| Arquitectura | 
 
 ### UX
 
-| Habilidad | Nivel esperado |
+| Habilidad | |
 |-----------|----------------|
-| User Centricity | 3
-| Visual Desing | 2
+| User Centricity | 
+| Visual Desing | 
 
 ### Habilidades Blandas
 
 Para este proyecto esperamos que ya hayas alcanzado el nivel 3 en todas tus
 habilidades blandas. Te aconsejamos revisar la rúbrica:
 
-| Habilidad | Nivel esperado |
+| Habilidad | |
 |-----------|----------------|
-| Planificación y organización | 3
-| Autoaprendizaje | 3
-| Solución de Problemas | 3
-| Dar y recibir feedback | 3
-| Adaptabilidad | 3
-| Trabajo en equipo (trabajo colaborativo y responsabilidad) | 3
-| Comunicación eficaz | 3
-| Presentaciones | 3
+| Planificación y organización | 
+| Autoaprendizaje | 
+| Solución de Problemas | 
+| Dar y recibir feedback | 
+| Adaptabilidad | 
+| Trabajo en equipo (trabajo colaborativo y responsabilidad) | 
+| Comunicación eficaz | 
+| Presentaciones | 
 
 ***
 
@@ -373,7 +372,7 @@ Otras:
 
 ***
 
-## Checklist
+## Checklist (no olvides llenarla)
 
 ### General
 
