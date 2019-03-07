@@ -23,3 +23,5 @@ const logOutButton = document.getElementById('log-out-button');
 logOutButton.addEventListener('click', ()=>{
     mainApp.logOut();
 })
+
+//holi!
