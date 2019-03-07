@@ -1,26 +1,26 @@
 
 (() => {
-    // Initialize the FirebaseUI Widget using Firebase.
+    // Inicia el widget de FirebaseUI usando Firebase.
 const ui = new firebaseui.auth.AuthUI(firebase.auth());
 const uiConfig = {
     callbacks: {
       signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-        // User successfully signed in.
-        // Return type determines whether we continue the redirect automatically
-        // or whether we leave that to developer to handle.
+        // el usuario se registró exitosamente
+        // Return determina si continúa a la redirección automática
+        // o si deja que el desarrollador lo maneje
         return true;
       },
       uiShown: function() {
-        // The widget is rendered.
-        // Hide the loader.
+        // El widget está renderizado.
+        // Esconde el loader.
         document.getElementById('loader').style.display = 'none';
       }
     },
-    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+    // se usa popup para el ingreso del flujo de los provedores de IDP en lugar del predeterminado, redirecciona.
     signInFlow: 'popup',
     signInSuccessUrl: '../html/user-information.html',
     signInOptions: [
-      // Leave the lines as is for the providers you want to offer your users.
+      // Solo dejamos las líneas de las formas de registro que vamos a utilizar.
       //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
       //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
@@ -28,11 +28,11 @@ const uiConfig = {
       firebase.auth.EmailAuthProvider.PROVIDER_ID,
       //firebase.auth.PhoneAuthProvider.PROVIDER_ID
     ],
-    // Terms of service url.
-    tosUrl: '../html/user-information.html',
-    // Privacy policy url.
+    // Términos del servicio de url.
+    // tosUrl: '../html/user-information.html',
+    // Url de la política de privacidad.
     //privacyPolicyUrl: '<your-privacy-policy-url>'
 }
-// The start method will wait until the DOM is loaded.
+// El método de inicio va a comenzar hasta que el dominio se cargue.
 ui.start('#firebaseui-auth-container', uiConfig);
 })();
