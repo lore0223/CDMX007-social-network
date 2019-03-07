@@ -29,7 +29,7 @@ const uiConfig = {
       //firebase.auth.PhoneAuthProvider.PROVIDER_ID
     ],
     // Terms of service url.
-    tosUrl: 'main.html',
+    tosUrl: '../html/user-information.html',
     // Privacy policy url.
     //privacyPolicyUrl: '<your-privacy-policy-url>'
 }
