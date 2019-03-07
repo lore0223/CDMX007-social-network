@@ -9,7 +9,7 @@ let mainApp = {};
         } else {
             //redirecciona a la pagina para login
             uid = null;
-            window.location.replace("index.html")
+            window.location.replace("../html/login.html")
         }
     });
 
