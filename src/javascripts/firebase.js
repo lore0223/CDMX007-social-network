@@ -1,5 +1,5 @@
  let appFireBase = {};
- // Initialize Firebase
+ // Inicia Firebase
 ( () => {
  const config = {
     apiKey: "AIzaSyDricH8xG2qh-uO35M9_Q5F4SvssT6MiUg",
