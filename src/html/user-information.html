@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.cssgit">
+    <link rel="stylesheet" href="../css/style-form.css">
     <title>TA: Información de Usuario</title>
 </head>
 
@@ -16,7 +17,7 @@
 
     <header>
         <img id="logo" src="../images/just-logo.png" alt="imagen del logo tejiendo en azul">
-        <h1 id="personalised-welcome">Bienvenida/o</h1>
+        <h2 id="personalised-welcome">Registro de nuevo usuario</h2>
     </header>
     <main>
         <form>
@@ -27,6 +28,8 @@
                         value="" required>
                     <div id="input-name" class="">
                         ¡Vas muy bien!
+
+
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
@@ -36,6 +39,13 @@
                     <div id= "input-last-name" class="">
                         Continuemos!
 
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="validationServer05">Tu edad</label>
+                    <input type="text" class="form-control" id="validationServer05" placeholder="Edad" required>
+                    <div class="invalid-feedback">
+                        Por favor ingresa tu edad.
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
@@ -55,21 +65,20 @@
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                     <label for="validationServer03">Estado</label>
-                    <input type="text" class="form-control" id="validationServer03" placeholder="Estado"
-                        required>
-                    <div id="input-state" class="">
-                        Por favor dinos de que Estado eres. 
+                    <input type="text" class="form-control" id="validationServer03" placeholder="Estado" required>
+                    <div class="invalid-feedback">
+                        Por favor dinos de que Estado eres.
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="validationServer04">Intereses</label>
                     <input type="text" class="form-control" id="validationServer04" placeholder="Música, películas, libros, vídeo juegos, etc."
                         required>
-                    <div id="input-preferences" class="">
-                        Por favor llena este campo, para que te conozcan mejor.
-                    </div>
+                    <!-- <div class="invalid-feedback"> -->
+                    Por favor llena este campo, para que te conozcan mejor.
                 </div>
-                
+            </div>
+
             </div>
             <!-- <div class="form-group">
                 <div class="form-check">
@@ -80,13 +89,17 @@
                     <div class="invalid-feedback">
                         You must agree before submitting.
                     </div>
-                </div>
-            </div> -->
+                </div>-->
             </div>
-            <button id="send-form-button" class="btn btn-primary" type="submit">Enviar</button>
+            <button id="send" class="btn btn-primary" type="submit">Enviar formulario</button>
         </form>
     </main>
+    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-database.js"></script>
     <script src="../javascripts/firebase.js"></script>
+    <script src="../javascripts/form.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -95,7 +108,6 @@
         crossorigin="anonymous"></script>
         <script src="../javascripts/form.js"></script>
 </body>
-            
+
 
 </html>
-

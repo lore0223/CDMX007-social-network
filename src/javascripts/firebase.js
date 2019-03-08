@@ -8,8 +8,20 @@
     projectId: "tejiendo-en-azul",
     storageBucket: "tejiendo-en-azul.appspot.com",
     messagingSenderId: "171386471320"
-  };
+  }
   firebase.initializeApp(config);
   appFireBase= firebase;
+
+  const fnCreate = (path, body, callBack) => {
+    if(!path || !body) return;
+    appFireBase.database().ref(path).set(body, callBack);
+  }
+
+  appFireBase.databaseApi = {
+    create: fnCreate,
+    // read: fnRead,
+    // update: fnUpdate,
+    // delete: fnDelete,
+  }
  }) ()
 
