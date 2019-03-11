@@ -15,12 +15,12 @@
 <body>
 
 
-    <header>
-        <img id="logo" src="../images/just-logo.png" alt="imagen del logo tejiendo en azul">
+    <header class = "head-and-foot">
+        <img id="logo" src="../images/just-logo-sin-fondo.png" alt="imagen del logo tejiendo en azul">
         <h2 id="personalised-welcome">Registro de nuevo usuario</h2>
     </header>
     <main>
-        <form>
+        <form id= "container">
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="validationServer01">Nombre</label>
@@ -94,6 +94,10 @@
             <button id="send" class="btn btn-primary" type="submit">Enviar formulario</button>
         </form>
     </main>
+
+    <footer class="head-and-foot">
+
+    </footer>
     <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-auth.js"></script>
