@@ -1,45 +1,39 @@
-#logo{
-    width: 30%;
-    margin-top: -11%;
-}
-
-#personalised-welcome{
-    width: 60%;
-    margin: -3%;
-    display: -webkit-inline-box;
-    padding-top: 10%;
-}
 body {
     color: #0B0A06;
     background-color: #54B6BF;
- }
- input {
+}
+
+input {
     width: 80%;
     text-align: center;
- }
- .head-and-foot {
+}
+
+.head-and-foot {
     width: 100%;
     background-color: #F4F4F4;
     color: #0B0A06
- }
- #container {
+}
+
+#container {
     width: 80%;
     display: grid;
     margin-left: 10%;
- }
- #logo{
+}
+
+#logo{
     width: 30%;
     margin: -11% 0% 2% 3%;
- }
- #personalised-welcome{
+}
+
+#personalised-welcome{
     width: 60%;
     margin: -3% -3% -3% 3%;
     display: -webkit-inline-box;
     padding-top: 10%;
     text-align: center;
- }
- #send {
+}
+
+#send {
     background-color: #B2080B;
     color: #F4F4F4;
- }
- 
+}
