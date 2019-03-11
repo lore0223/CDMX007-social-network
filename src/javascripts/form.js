@@ -72,9 +72,13 @@ const inputPreferences = document.getElementById('validationServer04').value;
     mainApp.Delete = fnDelete;
 
     const sendButton = document.getElementById('send');
+    const profile = document.getElementById("profile");
+    const userInformation = document.getElementById ("user-information");
     sendButton.addEventListener('click', (e) => {
         event.preventDefault(e);
         fnCreate();
+        profile.style.display= "block";
+        userInformation.style.display ="none";
     })
     mainApp.logOut = logOut;
 })();
