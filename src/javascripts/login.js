@@ -8,6 +8,8 @@ const uiConfig = {
         // el usuario se registró exitosamente
         // Return determina si continúa a la redirección automática
         // o si deja que el desarrollador lo maneje
+        document.getElementById('login').style.display='none'
+        document.getElementById('user-information').style.display='block'
         return true;
       },
       uiShown: function() {
@@ -18,7 +20,7 @@ const uiConfig = {
     },
     // se usa popup para el ingreso del flujo de los provedores de IDP en lugar del predeterminado, redirecciona.
     signInFlow: 'popup',
-    signInSuccessUrl: '../html/user-information.html',
+    signInSuccessUrl: '#',
     signInOptions: [
       // Solo dejamos las líneas de las formas de registro que vamos a utilizar.
       //firebase.auth.GoogleAuthProvider.PROVIDER_ID,

@@ -14,6 +14,10 @@ input {
     color: #0B0A06
 }
 
+.hide{
+    display: none;
+}
+
 #container {
     width: 80%;
     display: grid;
