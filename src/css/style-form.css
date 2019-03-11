@@ -1,3 +1,4 @@
+
 body {
     color: #0B0A06;
     background-color: #54B6BF;
@@ -13,7 +14,9 @@ input {
     background-color: #F4F4F4;
     color: #0B0A06
 }
-
+ .hide{
+     display: none;
+ }
 #container {
     width: 80%;
     display: grid;
