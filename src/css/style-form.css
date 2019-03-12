@@ -40,3 +40,33 @@ input {
     background-color: #B2080B;
     color: #F4F4F4;
 }
+ /* profile */
+ .bg-1 { 
+    background-color:#54B6BF;
+    color: #ffffff;
+  }
+  .bg-2 { 
+    background-color: #2471A3;
+    color: #ffffff;
+  }
+  .bg-3 { 
+    background-color:#54B6BF;
+    color: #ffffff;
+  }
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  /* termina profile */
+
+  /* boton de modal */
+  #publication {
+    background-color: #B2080B;
+    color: #F4F4F4;
+
+    margin-left: auto;
+    margin-right: auto;
+    height:65px; 
+    width:270px; 
+    text-align:left; 
+  }
