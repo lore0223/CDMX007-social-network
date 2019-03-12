@@ -21,7 +21,7 @@ const uiConfig = {
     signInSuccessUrl: '../html/user-information.html',
     signInOptions: [
       // Solo dejamos las líneas de las formas de registro que vamos a utilizar.
-      //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
       //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
       //firebase.auth.GithubAuthProvider.PROVIDER_ID,
@@ -36,3 +36,8 @@ const uiConfig = {
 // El método de inicio va a comenzar hasta que el dominio se cargue.
 ui.start('#firebaseui-auth-container', uiConfig);
 })();
+
+
+
+
+
