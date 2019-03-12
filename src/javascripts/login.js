@@ -37,3 +37,8 @@ const uiConfig = {
 // El método de inicio va a comenzar hasta que el dominio se cargue.
 ui.start('#firebaseui-auth-container', uiConfig);
 })();
+
+
+
+
+
