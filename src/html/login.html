@@ -9,88 +9,89 @@
   <title>TA: Registro</title>
   <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
   <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
   <link rel="stylesheet" href="../css/style-form.css">
 
 </head>
-<header class = "head-and-foot">
-    <img id="logo" src="../images/just-logo-sin-fondo.png" alt="imagen del logo tejiendo en azul">
-    <h2 id="personalised-welcome">Bienvenido a Tejiendo en Azul</h2>
+<header class="head-and-foot">
+  <img id="logo" src="../images/just-logo-sin-fondo.png" alt="imagen del logo tejiendo en azul">
+  <h2 id="personalised-welcome">Bienvenido a Tejiendo en Azul</h2>
 </header>
 
 <body>
   <!-- section login -->
-<section id ="login">
+  <section id="login">
 
     <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
-</section>
-    
+  </section>
+
   <!-- user information -->
   <section id="user-information" class="hide">
 
-                <form id= "container">
-                    <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <label for="validationServer01">Nombre</label>
-                            <input type="text" class="form-control" id="validationServer01" placeholder="Escribe tu nombre"
-                                value="" required>
-                            <div id="input-name" class="">
-                                ¡Vas muy bien!
-        
-        
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationServer02">Apellidos</label>
-                            <input type="text" class="form-control" id="validationServer02" placeholder="Escribe tus Apellidos"
-                                value="" required>
-                            <div id= "input-last-name" class="">
-                                Continuemos!
-        
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationServer05">Tu edad</label>
-                            <input type="text" class="form-control" id="validationServer05" placeholder="Edad" required>
-                            <div class="invalid-feedback">
-                                Por favor ingresa tu edad.
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationServerUsername">Nombre Fantástico</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                                </div>
-                                <input type="text" class="form-control" id="validationServerUsername" placeholder="Nombre de Usuario"
-                                    aria-describedby="inputGroupPrepend3" required>
-                                <div id="input-nick-name" class="">
-                                    Por favor escribe tu nombre fantástico.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-md-6 mb-3">
-                            <label for="validationServer03">Estado</label>
-                            <input type="text" class="form-control" id="validationServer03" placeholder="Estado" required>
-                            <div class="invalid-feedback">
-                                Por favor dinos de que Estado eres.
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationServer04">Intereses</label>
-                            <input type="text" class="form-control" id="validationServer04" placeholder="Música, películas, libros, vídeo juegos, etc."
-                                required>
-                            <!-- <div class="invalid-feedback"> -->
-                            Por favor llena este campo, para que te conozcan mejor.
-                        </div>
-                    </div>
-        
-                    </div>
-                    <!-- <div class="form-group">
+    <form id="container">
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="validationServer01">Nombre</label>
+          <input type="text" class="form-control" id="validationServer01" placeholder="Escribe tu nombre" value=""
+            required>
+          <div id="input-name" class="">
+            ¡Vas muy bien!
+
+
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationServer02">Apellidos</label>
+          <input type="text" class="form-control" id="validationServer02" placeholder="Escribe tus Apellidos" value=""
+            required>
+          <div id="input-last-name" class="">
+            Continuemos!
+
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationServer05">Tu edad</label>
+          <input type="text" class="form-control" id="validationServer05" placeholder="Edad" required>
+          <div class="invalid-feedback">
+            Por favor ingresa tu edad.
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationServerUsername">Nombre Fantástico</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupPrepend3">@</span>
+            </div>
+            <input type="text" class="form-control" id="validationServerUsername" placeholder="Nombre de Usuario"
+              aria-describedby="inputGroupPrepend3" required>
+            <div id="input-nick-name" class="">
+              Por favor escribe tu nombre fantástico.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationServer03">Estado</label>
+          <input type="text" class="form-control" id="validationServer03" placeholder="Estado" required>
+          <div class="invalid-feedback">
+            Por favor dinos de que Estado eres.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationServer04">Intereses</label>
+          <input type="text" class="form-control" id="validationServer04" placeholder="Música, películas, libros, vídeo juegos, etc."
+            required>
+          <!-- <div class="invalid-feedback"> -->
+          Por favor llena este campo, para que te conozcan mejor.
+        </div>
+      </div>
+
+      </div>
+      <!-- <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
                             <label class="form-check-label" for="invalidCheck3">
@@ -100,80 +101,83 @@
                                 You must agree before submitting.
                             </div>
                         </div>-->
-                    </div>
-                    <button id="send" class="btn btn-primary" type="submit">Enviar formulario</button>
-        
-                </form>
+      </div>
+      <button id="send" class="btn btn-primary" type="submit">Enviar formulario</button>
+
+    </form>
   </section>
 
   <!-- profile -->
-  <section id="profile" class ="hide">
-
-
+  <section id="profile" class="hide">
     <div class="container-fluid bg-1 text-center">
-        <h3>Perfil</h3>
-        <img src="bird.jpg" class="img-circle" alt="Bird" width="350" height="350">
-        <h3>I'm an adventurer</h3>
-      </div>
-      
-      <div class="container-fluid bg-2 text-center">
-        <h3>What Am I?</h3>
-      </div>
-      
-      <div class="container-fluid bg-3 text-center">
-        <h3>Where To Find Me?</h3>
-      </div>
-      <!-- modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Hacer Publicacíon</button>
+      <h3>Perfil</h3>
+      <!-- <img src="bird.jpg" class="img-circle" alt="Bird" width="350" height="350"> -->
+      <h3>I'm an adventurer</h3>
+    </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Nueva Publicacíon</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Publicacíon:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+    <div class="container-fluid bg-2 text-center">
+      <h3>What Am I?</h3>
+    </div>
+
+    <div class="container-fluid bg-3 text-center">
+      <h3>Where To Find Me?</h3>
+    </div>
+    <!-- modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Hacer
+      Publicacíon</button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nueva Publicacíon</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Publicar</button>
+          <div class="modal-body">
+            <form>
+
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Publicacíon:</label>
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="post-btn" data-dismiss="modal">Cancelar</button>
+            <!-- <button type="button" class="btn btn-primary" >Publicar</button> -->
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<!-- card -->
-<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-    <div class="card-header">Nombre</div>
-    <div class="card-body">
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-      
+    <!-- card -->
+    <!-- <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+      <div class="card-header">Nombre</div>
+      <div class="card-body">
+        <p id="post-card" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+      </div>
+    </div> -->
+    <div id="posting"></div>
+
   </section>
   <!-- dribbble -->
-    
-    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-database.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
   <script src="../javascripts/firebase.js"></script>
   <script src="../javascripts/login.js"></script>
+  <script src="../javascripts/main.js"></script>
   <script src="../javascripts/form.js"></script>
 </body>
 
