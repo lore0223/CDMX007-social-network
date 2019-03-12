@@ -28,9 +28,10 @@
 
 let mainApp = {};
 let data = {};
+let uid = '';
 (() => {
   const firebase = appFireBase;
-  let uid = null;
+  uid = null;
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       // Usuario está registrado
