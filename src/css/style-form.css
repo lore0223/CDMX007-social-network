@@ -14,9 +14,9 @@ input {
     background-color: #F4F4F4;
     color: #0B0A06
 }
- .hide{
+ /* .hide{
      display: none;
- }
+ } */
 #container {
     width: 80%;
     display: grid;
@@ -40,6 +40,7 @@ input {
     background-color: #B2080B;
     color: #F4F4F4;
 }
+<<<<<<< HEAD
  /* profile */
  .bg-1 { 
     background-color:#54B6BF;
@@ -52,12 +53,28 @@ input {
   .bg-3 { 
     background-color:#54B6BF;
     color: #ffffff;
+=======
+
+  /* profile */
+  .bg-1 { 
+    background-color: #1abc9c;
+    color: #ffffff;
+  }
+  .bg-2 { 
+    background-color: #474e5d;
+    color: #ffffff;
+  }
+  .bg-3 { 
+    background-color: #ffffff;
+    color: #555555;
+>>>>>>> upstream/master
   }
   .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
   }
   /* termina profile */
+<<<<<<< HEAD
 
   /* boton de modal */
   #publication {
@@ -70,3 +87,15 @@ input {
     width:270px; 
     text-align:left; 
   }
+=======
+  body .dribbble {
+  position: fixed;
+  display: block;
+  right: 20px;
+  bottom: 20px;
+}
+body .dribbble img {
+  display: block;
+  height: 28px;
+}
+>>>>>>> upstream/master

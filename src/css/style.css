@@ -150,16 +150,5 @@ body {
   background: white;
 }
 
- 
- body .dribbble{
-    position: fixed;
-  display: block;
-  right: 20px;
-  bottom: 20px;
-}
-body .dribbble img {
-  display: block;
-  height: 28px;
-}
 
 /*# sourceMappingURL=style.css.map */
