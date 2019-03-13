@@ -8,8 +8,10 @@ const uiConfig = {
     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
       // el usuario se registró exitosamente
       // Return determina si continúa a la redirección automática
-      // o si deja que el desarrollador lo maneje
-     
+      // o si deja que el desarrollador lo maneje ..esto de abajo se repite en mainjs
+      document.getElementById('login').style.display='none'
+      document.getElementById('user-information').style.display='block'
+      return true;
     },
     uiShown: function() {
       // El widget está renderizado.
