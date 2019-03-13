@@ -38,6 +38,37 @@ const uiConfig = {
 ui.start('#firebaseui-auth-container', uiConfig);
 })();
 
+const firebaseContainer= document.getElementById('firebaseui-auth-container');
+  firebaseContainer.addEventListener('click', ()=>{
+
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithRedirect(provider)
+    .catch(e => console.log(e.message))
+    firebase.auth().getRedirectResult().then(function(result) {
+        });
+
+    const providerFacebook = new firebase.auth.FacebookAuthProvider();
+    providerFacebook.addScope('public_profile') 
+    firebase.auth().signInWithRedirect(providerFacebook).then(function(result) { 
+      if (result.credential) {
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        const token = result.credential.accessToken;
+        // ...
+      }
+      // The signed-in user info.
+      const user = result.user;
+    }).catch(function(error) {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      const credential = error.credential;
+      // ...
+  
+    });
+      })
 
 
 
