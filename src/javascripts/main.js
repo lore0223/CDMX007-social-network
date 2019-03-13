@@ -41,7 +41,7 @@ let uid = '';
       uid = null;
       // window.location.replace("../html/login.html")
     }
-  });
+  }); 
 
   const logOut = () => {
     firebase.auth().signOut();
