@@ -39,7 +39,7 @@ let uid = '';
     } else {
       //redirecciona a la pagina para login
       uid = null;
-      window.location.replace("../html/login.html")
+      // window.location.replace("../html/login.html")
     }
   });
 
