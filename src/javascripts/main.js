@@ -1,31 +1,3 @@
-// let mainApp = {};
-// (() => {
-//     const firebase= appFireBase;
-//     let uid = null;
-//     firebase.auth().onAuthStateChanged(function (user) {
-//         if (user) {
-//             // Usuario está registrado
-//             uid = user.uid;
-//         } else {
-//             //redirecciona a la pagina para login
-//             uid = null;
-//             window.location.replace("../html/login.html")
-//         }
-//     });
-
-//     const logOut = () => {
-//         firebase.auth().signOut();
-//     }
-//     mainApp.logOut = logOut;
-// })();
-
-// const logOutButton = document.getElementById('log-out-button');
-// logOutButton.addEventListener('click', ()=>{
-//     mainApp.logOut();
-// })
-
-// //holi!
-
 let mainApp = {};
 let data = {};
 let uid = '';
@@ -36,10 +8,11 @@ let uid = '';
     if (user) {
       // Usuario está registrado
       uid = user.uid;
+      window.location.replace("#profile");
     } else {
       //redirecciona a la pagina para login
       uid = null;
-      // window.location.replace("../html/login.html")
+      window.location.replace("#login")
     }
   }); 
 
@@ -100,8 +73,8 @@ let uid = '';
   sendButton.addEventListener('click', (e) => {
     event.preventDefault(e);
     fnCreate();
-    profile.style.display = "block";
-    userInformation.style.display = "none";
+    // profile.style.display = "block";
+    // userInformation.style.display = "none";
   })
   mainApp.logOut = logOut;
 })();
