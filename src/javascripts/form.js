@@ -9,13 +9,49 @@ fetch('https://tejiendo-en-azul.firebaseio.com/users.json').then(
   return usersData;
 }).then((usersData)=> {
   firebase.auth().onAuthStateChanged((user) => {
-    console.log(usersData[user.uid].nickName);
-    console.log(user.uid);
-
+    if(user){
+      // console.log(usersData[user.uid].nickName);
+      console.log(user.uid);
+    }
   })
-
-
 })
+
+const app = {
+  pages: [],
+  show: new Event('show'),
+  init: () => {
+    app.pages = document.querySelectorAll('.page'); //identifica las secciones que tienen la clase page
+    app.pages.forEach((pg) => {
+      pg.addEventListener('show', app.pageShown);
+    })
+    document.querySelectorAll('.nav-link').forEach((link) => {
+      link.addEventListener('click', app.nav);
+    })
+    history.replaceState({}, 'Login', '#login');
+    window.addEventListener('popstate', app.poppin);
+  },
+  nav: (ev) => {
+    ev.preventDefault(); //mata evento que te lleva al inicio de la página (href="#")
+    let currentPage = ev.target.getAttribute('data-target');
+    document.querySelector('.active').classList.remove('active');
+    document.getElementById(currentPage).classList.add('active');
+    //recuerda la página a la que se mueve, y le agrega # a la url de la página donde está posicionado
+    history.pushState({}, currentPage, `#${currentPage}`) 
+  },
+  pageShown: (ev) => {
+
+  },
+  poppin: (ev) => {
+  console.log(location.hash);
+  let hash = location.hash.replace('#', '');
+  document.querySelector('.active').classList.remove('active');
+  document.getElementById(hash).classList.add('active');
+  console.log(hash);
+  }
+};
+document.addEventListener('DOMContentLoaded', app.init);
+
+
 //evento click en el modal:
 const postButton = document.getElementById('post-btn');
 const postCard = document.getElementById('post-card');

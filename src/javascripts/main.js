@@ -8,10 +8,11 @@ let uid = '';
     if (user) {
       // Usuario está registrado
       uid = user.uid;
+      window.location.replace("#profile");
     } else {
       //redirecciona a la pagina para login
       uid = null;
-      // window.location.replace("../html/login.html")
+      window.location.replace("#login")
     }
   });
 
@@ -72,8 +73,8 @@ let uid = '';
   sendButton.addEventListener('click', (e) => {
     event.preventDefault(e);
     fnCreate();
-    profile.style.display = "block";
-    userInformation.style.display = "none";
+    // profile.style.display = "block";
+    // userInformation.style.display = "none";
   })
   mainApp.logOut = logOut;
 })();

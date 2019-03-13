@@ -21,15 +21,23 @@
 </header>
 
 <body>
+  <menu>
+    <ol>
+      <li><a href="#" data-target="user-information" class="nav-link">Registro de Usuario</a></li>
+      <li><a href="#" data-target="profile" class="nav-link">Mi perfil</a></li>
+      <li><a href="#" data-target="user-wall" class="nav-link">Mi muro</a></li>
+    </ol>
+  </menu>
   <!-- section login -->
-  <section id="login">
+  <section id="login" class="page active">
 
     <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
+
   </section>
 
   <!-- user information -->
-  <section id="user-information" class="hide">
+  <section id="user-information" class="page">
 
     <form id="container">
       <div class="form-row">
@@ -91,16 +99,7 @@
       </div>
 
       </div>
-      <!-- <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
-                            <label class="form-check-label" for="invalidCheck3">
-                                Agree to terms and conditions
-                            </label>
-                            <div class="invalid-feedback">
-                                You must agree before submitting.
-                            </div>
-                        </div>-->
+
       </div>
       <button id="send" class="btn btn-primary" type="submit">Enviar formulario</button>
 
@@ -108,7 +107,7 @@
   </section>
 
   <!-- profile -->
-  <section id="profile" class="hide">
+  <section id="profile" class="page">
     <div class="container-fluid bg-1 text-center">
       <h3>Perfil</h3>
       <!-- <img src="bird.jpg" class="img-circle" alt="Bird" width="350" height="350"> -->
@@ -122,10 +121,12 @@
     <div class="container-fluid bg-3 text-center">
       <h3>Where To Find Me?</h3>
     </div>
-    <!-- modal -->
+  </section>
+
+  <!-- posts -->
+  <section id="user-wall" class="page">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Hacer
       Publicacíon</button>
-
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -152,17 +153,9 @@
         </div>
       </div>
     </div>
-    <!-- card -->
-    <!-- <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-      <div class="card-header">Nombre</div>
-      <div class="card-body">
-        <p id="post-card" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-      </div>
-    </div> -->
     <div id="posting"></div>
-
   </section>
+
   <!-- dribbble -->
 
   <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>
