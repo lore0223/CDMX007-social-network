@@ -11,12 +11,13 @@
   }
   firebase.initializeApp(config);
   appFireBase= firebase;
-
+// la constante de fnCreat vale path, body , callback, esto ejecuta la funcion de :
   const fnCreate = (path, body, callBack) => {
+    // si mi ruta o mi cuerpo es verdadero retorna true
     if(!path || !body) return;
+    // appFireBase entra a la dataBase ()entra a la ruta entra al conjunto del body, callback.
     appFireBase.database().ref(path).set(body, callBack);
   }
-
   appFireBase.databaseApi = {
     create: fnCreate,
     // read: fnRead,
@@ -24,29 +25,4 @@
     // delete: fnDelete,
   }
  }) ()
-
-//  const signInGoogle= ()=>{
-//   const provider = new firebase.auth.GoogleAuthProvider();
-//   provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-//   firebase.auth().signInWithRedirect(provider);
-//   firebase.auth().getRedirectResult().then(function(result) {
-//   if (result.credential) {
-//     // This gives you a Google Access Token. You can use it to access the Google API.
-//     var token = result.credential.accessToken;
-//     // ...
-//   }
-//   // The signed-in user info.
-//   var user = result.user;
-// }).catch(function(error) {
-//   // Handle Errors here.
-//   var errorCode = error.code;
-//   var errorMessage = error.message;
-//   // The email of the user's account used.
-//   var email = error.email;
-//   // The firebase.auth.AuthCredential type that was used.
-//   var credential = error.credential;
-//   // ...
-// });
-// }
-
 

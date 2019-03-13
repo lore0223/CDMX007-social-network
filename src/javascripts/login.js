@@ -1,15 +1,15 @@
 (() => {
-  // Inicia el widget de FirebaseUI usando Firebase.
+  // Inicia el (o facil a acceso a funciones visual)widget de FirebaseUI usando Firebase.
+  // autenticación 
 const ui = new firebaseui.auth.AuthUI(firebase.auth());
 const uiConfig = {
+//  el callback... Inicia sesión con éxito con el resultado de la autenticación
   callbacks: {
     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
       // el usuario se registró exitosamente
       // Return determina si continúa a la redirección automática
       // o si deja que el desarrollador lo maneje
-      document.getElementById('login').style.display='none'
-      document.getElementById('user-information').style.display='block'
-      return true;
+     
     },
     uiShown: function() {
       // El widget está renderizado.

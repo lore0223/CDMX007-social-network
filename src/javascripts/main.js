@@ -1,30 +1,3 @@
-// let mainApp = {};
-// (() => {
-//     const firebase= appFireBase;
-//     let uid = null;
-//     firebase.auth().onAuthStateChanged(function (user) {
-//         if (user) {
-//             // Usuario está registrado
-//             uid = user.uid;
-//         } else {
-//             //redirecciona a la pagina para login
-//             uid = null;
-//             window.location.replace("../html/login.html")
-//         }
-//     });
-
-//     const logOut = () => {
-//         firebase.auth().signOut();
-//     }
-//     mainApp.logOut = logOut;
-// })();
-
-// const logOutButton = document.getElementById('log-out-button');
-// logOutButton.addEventListener('click', ()=>{
-//     mainApp.logOut();
-// })
-
-// //holi!
 
 let mainApp = {};
 let data = {};
@@ -46,7 +19,7 @@ let uid = '';
   const logOut = () => {
     firebase.auth().signOut();
   }
-
+// no se que esta  pasando, es el manejo de mensajes
   const messageHandler = (err) => {
     if (!!err) {
       console.log(err)
@@ -72,7 +45,6 @@ let uid = '';
       preferences: inputPreferences,
       posts: []
     }
-    console.log(path);
     appFireBase.databaseApi.create(path, data, messageHandler);
     return data;
   }

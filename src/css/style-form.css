@@ -11,6 +11,7 @@ input {
 
 .head-and-foot {
     width: 100%;
+    padding: 1em 2em;
     background-color: #F4F4F4;
     color: #0B0A06
 }
@@ -40,20 +41,6 @@ input {
     background-color: #B2080B;
     color: #F4F4F4;
 }
-<<<<<<< HEAD
- /* profile */
- .bg-1 { 
-    background-color:#54B6BF;
-    color: #ffffff;
-  }
-  .bg-2 { 
-    background-color: #2471A3;
-    color: #ffffff;
-  }
-  .bg-3 { 
-    background-color:#54B6BF;
-    color: #ffffff;
-=======
 
   /* profile */
   .bg-1 { 
@@ -67,27 +54,12 @@ input {
   .bg-3 { 
     background-color: #ffffff;
     color: #555555;
->>>>>>> upstream/master
   }
   .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
   }
   /* termina profile */
-<<<<<<< HEAD
-
-  /* boton de modal */
-  #publication {
-    background-color: #B2080B;
-    color: #F4F4F4;
-
-    margin-left: auto;
-    margin-right: auto;
-    height:65px; 
-    width:270px; 
-    text-align:left; 
-  }
-=======
   body .dribbble {
   position: fixed;
   display: block;
@@ -98,4 +70,3 @@ body .dribbble img {
   display: block;
   height: 28px;
 }
->>>>>>> upstream/master
