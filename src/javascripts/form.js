@@ -52,32 +52,32 @@ const app = {
 document.addEventListener('DOMContentLoaded', app.init);
 
 
-// //evento click en el modal:
-// const postButton = document.getElementById('post-btn');
-// const postCard = document.getElementById('post-card');
-// const posting = document.getElementById('posting');
+//evento click en el modal:
+const postButton = document.getElementById('post-btn');
+const postCard = document.getElementById('post-card');
+const posting = document.getElementById('posting');
 
-// postButton.addEventListener('click', () => {
-//   //agrarrar el valor del textarea del modal para ponerlo en la tarjeta de la publicación :D
-//   const messageText = document.getElementById('message-text');
-//   console.log(usersData);
-//   firebase.auth().onAuthStateChanged((user) => {
-//     let newPost = '';
-//     console.log(usersData[user.uid].nickName);
-//     for (let id in usersData) {
-//       if (uid === id) {
-//         console.log(uid);
-//         console.log(id);
-//          newPost = posting.insertAdjacentHTML('beforeend', `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-//       <div class="card-header">${usersData[user.uid].nickName}</div>
-//       <div class="card-body">
-//         <p id="post-card" class="card-text">${messageText.value}</p>
-//       </div>
-//       </div>`)
+postButton.addEventListener('click', () => {
+  //agrarrar el valor del textarea del modal para ponerlo en la tarjeta de la publicación :D
+  const messageText = document.getElementById('message-text');
+  console.log(usersData);
+  firebase.auth().onAuthStateChanged((user) => {
+    let newPost = '';
+    console.log(usersData[user.uid].nickName);
+    for (let id in usersData) {
+      if (uid === id) {
+        console.log(uid);
+        console.log(id);
+         newPost = posting.insertAdjacentHTML('beforeend', `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+      <div class="card-header">${usersData[user.uid].nickName}</div>
+      <div class="card-body">
+        <p id="post-card" class="card-text">${messageText.value}</p>
+      </div>
+      </div>`)
       
-//       }
-//     }
-//     return newPost;
-//   })
+      }
+    }
+    return newPost;
+  })
 
-// })
+})
