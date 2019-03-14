@@ -6,6 +6,7 @@ let uid = '';
   uid = null;
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
+      console.log(user);
       // Usuario está registrado
       uid = user.uid;
       window.location.replace("#profile");
@@ -14,7 +15,7 @@ let uid = '';
       uid = null;
       window.location.replace("#login")
     }
-  }); 
+  });
 
   const logOut = () => {
     firebase.auth().signOut();
@@ -55,11 +56,14 @@ let uid = '';
   }
 
   const fnUpdate = () => {
-
+    const path = 'users/' + uid;
+    const add = data.posts.push(newPost)
+    appFireBase.databaseApi.update(path, add, messageHandler);
   }
 
   const fnDelete = () => {
-
+    const path = 'users/' + uid;
+    appFireBase.databaseApi.delete(path, messageHandler);
   }
 
   mainApp.Create = fnCreate;
@@ -75,6 +79,10 @@ let uid = '';
     fnCreate();
     // profile.style.display = "block";
     // userInformation.style.display = "none";
+  })
+  messageText.addEventListener('click', () => {
+    console.log('función update');
+    fnUpdate();
   })
   mainApp.logOut = logOut;
 })();
