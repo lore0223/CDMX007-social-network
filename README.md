@@ -1,3 +1,41 @@
+# Red Social: Tejiendo en Azul
+¿Cómo conocimos el mercado de las redes sociales?
+
+### Necesidades de nuestros usuarios
+La integrante del equipo Paulina, tuvo la oportunidad de darle clases a estudiantes de bachillerato con todo tipo de discapacidad. Y se dio cuenta de que los estudiantes que se tenían algún [Trastorno del Espectro Autista](https://www.who.int/features/qa/85/es/), solían tener dificultades para socializar e interactuar con sus compañeros. Los estudiantes con las características mencionadas querían tener amigos, pero no sabían cómo hacerlo, y algunos de ellos buscaban relacionarse con personas mediante redes sociales como [Facebook](https://www.facebook.com/). Sin embargo, Paulina se dio cuenta de que los estudiantes se ponían en situaciones de riesgo al realizar la práctica de agregar como sus "amigos/as" a personas que no conocían. 
+
+Otra característica que notó Paulina fue que las personas dentro del *Trastorno del Espectro Autista*, es que tienen gustos e intereses muy particulares, y les encanta hablar de ellos todo el tiempo. Sin embargo, eso también los hace vulnerables. Por ejemplo, a su ex-estudiante Juan le encanta coleccionar muñecas [Monster High](http://play.monsterhigh.com/en-us/character/index.html), lo cual lo hizo blanco de burlas de personas poco empáticas y poco conscientes sobre el Autismo.
+
+Por lo tanto decidimos trabajar en una Red Social en la que las personas dentro del *Espectro Autista* puedan sentirse libres de compartir todo sobre sus intereses personales, y seguros al interactuar con personas que pueden estar viviendo situaciones similares en su día a día. 
+
+El nombre de nuestra Red Social es *Tejiendo en Azul*. La palabra "tejiendo" la elegimos porque queremos que sea un sitio en el que las personas dentro del *Espectro* pueda crear _redes_, hacer _comunidad_, y el "azul" lo elegimos como el color base de nuestra red social porque [es el color del *Autismo*](https://www.elcomercio.com/afull/azul-simbolo-autismo-dia-onu.html). Además agregamos como parte de nuestro logo, una pieza de rompecabezas, ya que se utiliza para conscientizar sobre la [complejidad del *Trastorno*](https://autismodiario.org/2017/06/13/autismo-una-pieza-rompecabezas-la-evolucion-humana/). A continuación se presenta nuestro logo:
+
+![Logo-Tejiendo-en-Azul](https://github.com/lore0223/CDMX007-social-network/blob/master/src/images/logo-red-sin-fondo.png)
+
+### Prototipos: Tejiendo en Azul
+
+A continuación presentamos nuestros prototipos de baja y alta fidelidad:
+
+
+
+
+
+
+En el `README.md` colocar cómo conociste el mercado de las redes sociales, cómo
+descubriste las necesidades de los usuarios, cómo llegaste  la definición final
+de tu producto. Si tienes fotos de entrevistas, cuestionarios y/o sketches
+(bocetos) compártelos. Es importante que detalles:
+
+
+* Cuáles son los objetivos de estos usuarios en relación con el producto
+* Cuáles son las principales funcionalidades del producto y cuál es su prioridad
+* Cómo verificaste que el producto les está resolviendo sus problemas
+* Cómo te asegurarás que estos usuarios usen este producto
+
+Para poder llegar a estas definiciones te recomendamos ver: entrevistas con
+usuarios y tests de usabilidad.
+----------------------------------------------
+
 # Creando una Red Social
 
 ## Preámbulo

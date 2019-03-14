@@ -12,17 +12,25 @@
   firebase.initializeApp(config);
   appFireBase= firebase;
 
-  const fnCreate = (path, body, callBack) => {
-    if(!path || !body) return;
-    appFireBase.database().ref(path).set(body, callBack);
-  }
+  // const fnCreate = (path, body, callBack) => {
+  //   if(!path || !body) return;
+  //   appFireBase.database().ref(path).set(body, callBack);
+  // }
+  // const fnUpdate = (path, body, callBack) => {
+  //   if(!path || !body) return;
+  //   appFireBase.database().ref(path).update(body, callBack);
+  // }
+  // const fnDelete = (path, body, callBack) => {
+  //   if(!path || !body) return;
+  //   appFireBase.database().ref(path).delete(callBack);
+  // }
 
-  appFireBase.databaseApi = {
-    create: fnCreate,
-    // read: fnRead,
-    // update: fnUpdate,
-    // delete: fnDelete,
-  }
+  // appFireBase.databaseApi = {
+  //   create: fnCreate,
+  //   // read: fnRead,
+  //   update: fnUpdate,
+  //   delete: fnDelete,
+  // }
  }) ()
 
   
