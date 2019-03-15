@@ -8,7 +8,7 @@ fetch('https://tejiendo-en-azul.firebaseio.com/users.json').then(
   }).then(data => {
   usersData = data;
   return usersData;
-}).then((usersData)=> {
+}).then((usersData) => {
   firebase.auth().onAuthStateChanged((user) => {
     if(user){
       userId = user.uid
@@ -38,19 +38,19 @@ const app = {
     document.querySelector('.active').classList.remove('active');
     document.getElementById(currentPage).classList.add('active');
     //recuerda la página a la que se mueve, y le agrega # a la url de la página donde está posicionado
-    history.pushState({}, currentPage, `#${currentPage}`) 
+    history.pushState({}, currentPage, `#${currentPage}`)
   },
   pageShown: (ev) => {
 
   },
   poppin: (ev) => {
-  console.log(location.hash);
-  let hash = location.hash.replace('#', '');
-  document.querySelector('.active').classList.remove('active');
-  document.getElementById(hash).classList.add('active');
-  console.log(hash);
+    console.log(location.hash);
+    let hash = location.hash.replace('#', '');
+    document.querySelector('.active').classList.remove('active');
+    document.getElementById(hash).classList.add('active');
+    console.log(hash);
   }
-};
+}
 document.addEventListener('DOMContentLoaded', app.init);
 
 
@@ -143,6 +143,7 @@ db.ref('wall/').on('value', (snapshot)=>{
     }
     return 
   }
+
 
 })
 
