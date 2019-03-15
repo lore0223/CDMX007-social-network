@@ -55,11 +55,24 @@ let uid = '';
   }
 
   const fnUpdate = () => {
-
+    const path = 'users/' + uid;
+    data = {
+      // name: inputName,
+      // lastname: inputLastName,
+      // age: inputAge,
+      // nickName: inputNickName,
+      // state: inputState,
+      // preferences: inputPreferences,
+      posts: []
   }
-
+  console.log(path);
+  appFireBase.databaseApi.update(path, data, messageHandler);
+  return data;
+  }
   const fnDelete = () => {
-
+    console.log(path);
+    appFireBase.databaseApi.delete(path, messageHandler);
+    return data;
   }
 
   mainApp.Create = fnCreate;
