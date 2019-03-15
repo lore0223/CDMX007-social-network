@@ -90,7 +90,8 @@ let uid = '';
     // profile.style.display = "block";
     // userInformation.style.display = "none";
   })
-  newPost.addEventListener('click', () => {
+  const newPostProfile = document.getElementById('message-text');
+  newPostProfile.addEventListener('click', () => {
     console.log('función update');
     fnUpdate();
   })
