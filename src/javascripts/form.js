@@ -110,16 +110,11 @@ postButton.addEventListener('click', (event) =>  {
     userId : usersData[user.uid].name,
   }
   const newPostKey = rootRef.child('post').push().key;
-  
-  // db.ref(`users/${userId} /post/${newPostKey}`).update(newPostData)
+
   db.ref('users'+'/'+userId+'/post/'+newPostKey).update(newPostData)
   db.ref(`wall/${newPostKey}`).update(postDataWithUser)
-  console.log(wall);
 })
   event.preventDefault();
-
-
-
 })
 
 db.ref('wall/').on('value', (snapshot)=>{
