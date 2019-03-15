@@ -101,14 +101,15 @@ const newPost= document.getElementById('message-text');
 
 postButton.addEventListener('click', (event) =>  {
   firebase.auth().onAuthStateChanged((user) =>{
-  console.log(usersData)
-  const newPostData = {
-    message : newPost.value
-  }
+    const newPostData = {
+      message : newPost.value
+    }
+    
+    const postDataWithUser = {
+      userId : usersData[user.uid].nickName,
+    }
+    console.log(usersData[user.uid].nickName)
 
-  const postDataWithUser = {
-    userId : usersData[user.uid].name,
-  }
   const newPostKey = rootRef.child('post').push().key;
 
   db.ref('users'+'/'+userId+'/post/'+newPostKey).update(newPostData)
@@ -125,6 +126,8 @@ db.ref('wall/').on('value', (snapshot)=>{
   for (objectMessage in allPost){
     
     const userPost = allPost[objectMessage].userId;
+    console.log(userPost);
+    
     const singleMessage = usersData[userId].post
     for (const key in singleMessage) {
       if (singleMessage.hasOwnProperty(key)) {
