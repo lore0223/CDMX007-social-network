@@ -57,13 +57,23 @@ let uid = '';
 
   const fnUpdate = () => {
     const path = 'users/' + uid;
-    const add = data.posts.push(newPost)
-    appFireBase.databaseApi.update(path, add, messageHandler);
+    data = {
+      // name: inputName,
+      // lastname: inputLastName,
+      // age: inputAge,
+      // nickName: inputNickName,
+      // state: inputState,
+      // preferences: inputPreferences,
+      posts: []
   }
+  console.log(path);
+  appFireBase.databaseApi.update(path, data, messageHandler);
+  return data;
 
+  }
   const fnDelete = () => {
-    const path = 'users/' + uid;
     appFireBase.databaseApi.delete(path, messageHandler);
+    return data;
   }
 
   mainApp.Create = fnCreate;
