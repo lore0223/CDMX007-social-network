@@ -1,6 +1,7 @@
 // Aquí deberíamos hacer las funciones del DOM, y pasar todo lo anterior al main.js
 //fetch data firebase
 let usersData = {};
+var userId = null;
 fetch('https://tejiendo-en-azul.firebaseio.com/users.json').then(
   response => {
     return response.json();
@@ -9,7 +10,8 @@ fetch('https://tejiendo-en-azul.firebaseio.com/users.json').then(
   return usersData;
 }).then((usersData) => {
   firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
+    if(user){
+      userId = user.uid
       // console.log(usersData[user.uid].nickName);
       console.log(user.uid);
     }
@@ -52,32 +54,97 @@ const app = {
 document.addEventListener('DOMContentLoaded', app.init);
 
 
-//evento click en el modal:
+// //evento click en el modal:
+// const postButton = document.getElementById('post-btn');
+// const postCard = document.getElementById('post-card');
+// postButton.addEventListener('click', () => {
+//   //agrarrar el valor del textarea del modal para ponerlo en la tarjeta de la publicación :D
+//   const messageText = document.getElementById('message-text');
+//   console.log(usersData);
+//   messageText.innerHTML = '';
+//   firebase.auth().onAuthStateChanged((user) => {
+//   console.log(usersData[user.uid].nickName);
+//   for(let id in usersData){
+//     if(uid === id){
+//       console.log(uid);
+//       console.log(id);
+//       const posting = document.getElementById('posting');
+//       posting.insertAdjacentHTML('beforeend', `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+//       <div class="card-header">${usersData[user.uid].nickName}</div>
+//       <div class="card-body">
+//         <p id="post-card" class="card-text">${messageText.value}</p>
+//       </div>
+//     </div>`)
+      
+//     }
+//     }
+//   })
+  
+// })
+
+const db = firebase.database();
+const rootRef = firebase.database().ref();
+
+
+
+//CONSTANTES
+
 const postButton = document.getElementById('post-btn');
 const postCard = document.getElementById('post-card');
-const posting = document.getElementById('posting');
+const wall = document.getElementById('wall');
+const newPost= document.getElementById('message-text');
 
-postButton.addEventListener('click', () => {
-  //agrarrar el valor del textarea del modal para ponerlo en la tarjeta de la publicación :D
-  const messageText = document.getElementById('message-text');
-  console.log(usersData);
-  firebase.auth().onAuthStateChanged((user) => {
-    let newPost = '';
-    console.log(usersData[user.uid].nickName);
-    for (let id in usersData) {
-      if (uid === id) {
-        console.log(uid);
-        console.log(id);
-         newPost = posting.insertAdjacentHTML('beforeend', `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-      <div class="card-header">${usersData[user.uid].nickName}</div>
-      <div class="card-body">
-        <p id="post-card" class="card-text">${messageText.value}</p>
-      </div>
-      </div>`)
-      
+
+
+//EVENTOS 
+
+
+postButton.addEventListener('click', (event) =>  {
+  firebase.auth().onAuthStateChanged((user) =>{
+    const newPostData = {
+      message : newPost.value
+    }
+    
+    const postDataWithUser = {
+      userId : usersData[user.uid].nickName,
+    }
+    console.log(usersData[user.uid].nickName)
+
+  const newPostKey = rootRef.child('post').push().key;
+
+  db.ref('users'+'/'+userId+'/post/'+newPostKey).update(newPostData)
+  db.ref(`wall/${newPostKey}`).update(postDataWithUser)
+})
+  event.preventDefault();
+})
+
+db.ref('wall/').on('value', (snapshot)=>{
+  
+  const allPost = snapshot.val();
+  wall.innerHTML= '';
+  
+  for (objectMessage in allPost){
+    
+    const userPost = allPost[objectMessage].userId;
+    console.log(userPost);
+    
+    const singleMessage = usersData[userId].post
+    for (const key in singleMessage) {
+      if (singleMessage.hasOwnProperty(key)) {
+        const element = singleMessage[key];
+        console.log(element.message)
+        wall.innerHTML += `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">${userPost}</div>
+        <div class="card-body">
+        <p id="post-card" class="card-text">${element.message}</p>
+        </div>
+        </div>`
       }
     }
-    return newPost;
-  })
+    return 
+  }
+
 
 })
+
+

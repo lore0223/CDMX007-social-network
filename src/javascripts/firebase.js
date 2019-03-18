@@ -1,7 +1,7 @@
- let appFireBase = {};
- // Inicia Firebase
-( () => {
- const config = {
+let appFireBase = {};
+//Inicia Firebase
+(() => {
+  const config = {
     apiKey: "AIzaSyDricH8xG2qh-uO35M9_Q5F4SvssT6MiUg",
     authDomain: "tejiendo-en-azul.firebaseapp.com",
     databaseURL: "https://tejiendo-en-azul.firebaseio.com",
@@ -10,29 +10,27 @@
     messagingSenderId: "171386471320"
   }
   firebase.initializeApp(config);
-  appFireBase= firebase;
+  appFireBase = firebase;
 
-  const fnCreate = (path, body, callBack) => {
-    if(!path || !body) return;
-    appFireBase.database().ref(path).set(body, callBack);
-  }
-  const fnUpdate = (path, body, callBack) => {
-    if(!path || !body) return;
-    appFireBase.database().ref(path).update(body, callBack);
-  }
-  const fnDelete = (path, body, callBack) => {
-    if(!path || !body) return;
-    appFireBase.database().ref(path).delete(callBack);
-  }
+     const fnCreate = (path, body, callBack) => {
+       if (!path || !body) return;
+       appFireBase.database().ref(path).set(body, callBack);
+     }
+     const fnUpdate= (path, body, callBack) => {
+      if (!path || !body) return;
+      appFireBase.database().ref(path).update(body, callBack);
+    }
+    const fnDelete = (path, callBack) => {
+      if (!path || !body) return;
+      appFireBase.database().ref(path).remove(callBack);
+    }
 
-  appFireBase.databaseApi = {
-    create: fnCreate,
-    // read: fnRead,
-    update: fnUpdate,
-    delete: fnDelete,
-  }
- }) ()
-
+     appFireBase.databaseApi = {
+       create: fnCreate,
+       // read: fnRead,
+        update: fnUpdate,
+        delete: fnDelete,
+     }
   
-
+})()
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -8,10 +8,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>TA: Registro</title>
 
-  <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-  crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+   <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" /> 
   <link rel="stylesheet" href="../css/style-form.css">
   
 </head>
@@ -23,13 +23,16 @@
 
 <body>
   <menu>
-    <ol>
+    <ul>
       <li><a href="#" data-target="user-information" class="nav-link">Registro de Usuario</a></li>
       <li><a href="#" data-target="profile" class="nav-link">Mi perfil</a></li>
       <li><a href="#" data-target="user-wall" class="nav-link">Mi muro</a></li>
-    </ol>
+    </ul>
   </menu>
-  <!-- section login -->
+</header>
+
+<body>
+   <!-- section login  -->
   <section id="login" class="page active">
 
     <div id="firebaseui-auth-container"></div>
@@ -94,7 +97,7 @@
           <label for="validationServer04">Intereses</label>
           <input type="text" class="form-control" id="validationServer04" placeholder="Música, películas, libros, vídeo juegos, etc."
             required>
-          <!-- <div class="invalid-feedback"> -->
+          <div class="invalid-feedback">
           Por favor llena este campo, para que te conozcan mejor.
         </div>
       </div>
@@ -111,16 +114,16 @@
   <section id="profile" class="page">
     <div class="container-fluid bg-1 text-center">
       <h3>Perfil</h3>
-      <!-- <img src="bird.jpg" class="img-circle" alt="Bird" width="350" height="350"> -->
-      <h3>I'm an adventurer</h3>
+      <img src="../images/lors.jpg" class="img-circle" alt="Bird" width="85" height="85">
+      <h3>Soy Lorena</h3>
     </div>
 
     <div class="container-fluid bg-2 text-center">
-      <h3>What Am I?</h3>
+      <h3>Me gusta que me digan Lors</h3>
     </div>
 
     <div class="container-fluid bg-3 text-center">
-      <h3>Where To Find Me?</h3>
+      <h3>Me gustan los libros, el rock, los negocios y la tecnología! </h3>
     </div>
   </section>
 
@@ -148,16 +151,16 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" id="post-btn" data-dismiss="modal">Cancelar</button>
-            <!-- <button type="button" class="btn btn-primary" >Publicar</button> -->
+            <button type="button" class="btn btn-secondary" id="post-btn" data-dismiss="modal">Publicar</button>
+            
           </div>
         </div>
       </div>
     </div>
-    <div id="posting"></div>
+    <div id="wall"></div>
   </section>
 
-  <!-- dribbble -->
+
   <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-database.js"></script>
