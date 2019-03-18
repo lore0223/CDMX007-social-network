@@ -1,6 +1,6 @@
 body {
   color: #0B0A06;
-  background-color: #54B6BF;
+  background-color: rgba(84, 182, 191, 0.37);
 }
 
 input {
@@ -55,7 +55,7 @@ input {
 
 /* profile */
 .bg-1 {
-  background-color: #1abc9c;
+  background-color: #54B6BF;
   color: #ffffff;
 }
 
