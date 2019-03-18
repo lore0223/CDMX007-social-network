@@ -3,7 +3,7 @@
   const ui = new firebaseui.auth.AuthUI(firebase.auth());
   const uiConfig = {
     callbacks: {
-      signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+      signInSuccessWithAuthResult: (authResult, redirectUrl) => {
         // el usuario se registró exitosamente
         // Return determina si continúa a la redirección automática
         // o si deja que el desarrollador lo maneje
@@ -11,7 +11,7 @@
         document.getElementById('user-information').style.display = 'block'
         return true;
       },
-      uiShown: function () {
+      uiShown: () => {
         // El widget está renderizado.
         // Esconde el loader.
         document.getElementById('loader').style.display = 'none';
