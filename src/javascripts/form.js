@@ -12,7 +12,6 @@ fetch('https://tejiendo-en-azul.firebaseio.com/users.json').then(
   firebase.auth().onAuthStateChanged((user) => {
     if(user){
       userId = user.uid
-      // console.log(usersData[user.uid].nickName);
       console.log(user.uid);
     }
   })
@@ -82,10 +81,10 @@ document.addEventListener('DOMContentLoaded', app.init);
   
 // })
 
+///////////////Funcion para realizar nuevos post///////////////////
+
 const db = firebase.database();
 const rootRef = firebase.database().ref();
-
-
 
 //CONSTANTES
 
@@ -143,8 +142,21 @@ db.ref('wall/').on('value', (snapshot)=>{
     }
     return 
   }
-
-
 })
+
+/// Validar los inputs
+///CONSTANTES
+
+const inputFantasticName = document.getElementById('validationServerUsername');
+const inputPreferences = document.getElementById('validationServer04');
+
+/// Funciones
+const validateFantasticName = (string) => {
+if (string.value === ''){
+  alert('Por favor escribe un nombre de usuario')
+}
+}
+
+validateFantasticName(inputFantasticName);
 
 
