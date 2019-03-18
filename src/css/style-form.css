@@ -11,7 +11,11 @@ input {
 .head-and-foot {
   width: 100%;
   background-color: #F4F4F4;
-  color: #0B0A06
+  color: #0B0A06;
+  z-index: 1;
+  position: fixed;
+  height: 26%;
+  
 }
 
 .page {
@@ -34,10 +38,13 @@ input {
   display: grid;
   margin-left: 10%;
 }
+#firebaseui-auth-container{
+margin-top: 70%;
+}
 
 #logo {
   width: 30%;
-  margin: -11% 0% 2% 3%;
+  margin: 1% 0% 2% 3%;
 }
 
 #personalised-welcome {
@@ -57,6 +64,9 @@ input {
 .bg-1 {
   background-color: #54B6BF;
   color: #ffffff;
+  margin-top: 56%;
+  padding-top: 46px;
+  padding-bottom: 46px;
 }
 
 .bg-2 {
@@ -86,3 +96,10 @@ body .dribbble img {
   display: block;
   height: 28px;
 }
+
+.btn{
+  margin-top: 56%
+}
+ #wall{
+   margin-top: 7%;
+ }
