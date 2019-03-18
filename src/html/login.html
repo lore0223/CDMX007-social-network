@@ -15,30 +15,40 @@
   <link rel="stylesheet" href="../css/style-form.css">
 
 </head>
-<header class="head-and-foot">
-  <img id="logo" src="../images/just-logo-sin-fondo.png" alt="imagen del logo tejiendo en azul">
-  <h2 id="personalised-welcome">Bienvenido a Tejiendo en Azul</h2>
-</header>
-
 
 <body>
+
+
+  <header class="head-and-foot">
+    <img id="logo" src="../images/just-logo-sin-fondo.png" alt="imagen del logo tejiendo en azul">
+    <h4 id="personalised-welcome">Tejiendo en Azul</h4>
+    <menu id = "general-menu">
+      <ul>
+        <li><a href="#" data-target="user-information" class="nav-link">Registro de Usuario</a></li>
+        <li><a href="#" data-target="profile" class="nav-link">Mi perfil</a></li>
+        <li><a href="#" data-target="user-wall" class="nav-link">Mi muro</a></li>
+      </ul>
+      <button id="logout">Cerrar sesión</button>
+    </menu>
+  </header>
+
   <!-- section login  -->
   <section id="login" class="page active">
-    
+
     <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
-    
+
   </section>
-  
+
   <div id="private-information">
-    <menu id="general-menu" >
+    <!-- <menu id="general-menu" >
       <ol>
         <li><a href="#" data-target="user-information" class="nav-link">Registro de Usuario</a></li>
         <li><a href="#" data-target="profile" class="nav-link">Mi perfil</a></li>
         <li><a href="#" data-target="user-wall" class="nav-link">Mi muro</a></li>
       </ol>
       <button id="logout">Cerrar sesión</button>
-    </menu>
+    </menu> -->
   </div>
 
   <!-- user information -->
@@ -88,7 +98,7 @@
       </div>
       <div class="form-row">
         <div class="col-md-6 mb-3">
-          <label for="validationServer03">Estado</label>
+          <label for="validationServer03">Estado/Ciudad</label>
           <input type="text" class="form-control" id="validationServer03" placeholder="Estado" required>
           <div class="invalid-feedback">
             Por favor dinos de que Estado eres.
@@ -116,15 +126,15 @@
     <div class="container-fluid bg-1 text-center">
       <h3>Perfil</h3>
       <img src="../images/lors.jpg" class="img-circle" alt="Bird" width="85" height="85">
-      <h3>Soy Lorena</h3>
+      <h3>Soy <span id="user-name"></span></h3>
     </div>
 
     <div class="container-fluid bg-2 text-center">
-      <h3>Me gusta que me digan Lors</h3>
+      <h3>Me gusta que me digan <span id="nick-name"></span></h3>
     </div>
 
     <div class="container-fluid bg-3 text-center">
-      <h3>Me gustan los libros, el rock, los negocios y la tecnología! </h3>
+      <h3>Me gustan <span id="preferences"></span></h3>
     </div>
   </section>
 

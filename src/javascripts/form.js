@@ -81,3 +81,83 @@ document.addEventListener('DOMContentLoaded', app.init);
 //   })
   
 // })
+
+///////////////Funcion para realizar nuevos post///////////////////
+
+const db = firebase.database();
+const rootRef = firebase.database().ref();
+
+//CONSTANTES
+
+const postButton = document.getElementById('post-btn');
+const postCard = document.getElementById('post-card');
+const wall = document.getElementById('wall');
+const newPost= document.getElementById('message-text');
+
+
+
+//EVENTOS 
+
+
+postButton.addEventListener('click', (event) =>  {
+  firebase.auth().onAuthStateChanged((user) =>{
+    const newPostData = {
+      message : newPost.value
+    }
+    
+    const postDataWithUser = {
+      userId : usersData[user.uid].nickName,
+    }
+    console.log(usersData[user.uid].nickName)
+
+  const newPostKey = rootRef.child('post').push().key;
+
+  db.ref('users'+'/'+userId+'/post/'+newPostKey).update(newPostData)
+  db.ref(`wall/${newPostKey}`).update(postDataWithUser)
+})
+  event.preventDefault();
+})
+
+db.ref('wall/').on('value', (snapshot)=>{
+  
+  const allPost = snapshot.val();
+  wall.innerHTML= '';
+  
+  for (objectMessage in allPost){
+    
+    const userPost = allPost[objectMessage].userId;
+    console.log(userPost);
+    
+    const singleMessage = usersData[userId].post
+    for (const key in singleMessage) {
+      if (singleMessage.hasOwnProperty(key)) {
+        const element = singleMessage[key];
+        console.log(element.message)
+        wall.innerHTML += `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">${userPost}</div>
+        <div class="card-body">
+        <p id="post-card" class="card-text">${element.message}</p>
+        </div>
+        </div>`
+      }
+    }
+    return 
+  }
+})
+
+/// Validar los inputs
+///CONSTANTES
+
+const inputFantasticName = document.getElementById('validationServerUsername');
+const inputPreferences = document.getElementById('validationServer04');
+
+/// Funciones
+const validateFantasticName = (string) => {
+if (string.value === ''){
+  alert('Por favor escribe un nombre de usuario')
+}
+}
+
+validateFantasticName(inputFantasticName);
+
+

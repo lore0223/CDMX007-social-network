@@ -11,7 +11,39 @@ input {
 .head-and-foot {
   width: 100%;
   background-color: #F4F4F4;
-  color: #0B0A06
+  color: #0B0A06;
+  z-index: 1;
+  position: fixed;
+  height: 30%;
+  padding-left: 10%;
+}
+
+menu {
+  display: inline-flex;
+  margin: 0% 0% 0% -20%;
+  
+}
+
+#logout{
+  font-size: 1rem;
+  background-color: #B2080B;
+  color: #F4F4F4;
+  height: 0%;
+  border-radius: 5%;
+  padding: 1%;
+  width: 46%;
+  margin: 25% -15% 0% 0%;
+}
+
+ul {
+  list-style: none;
+ 
+}
+
+li{
+  padding: 0%;
+  /* border: 2px solid #ccc; */
+  text-align: center;
 }
 
 .page {
@@ -20,6 +52,16 @@ input {
   min-height: 100%;
   position: absolute;
   padding: 1rem 2rem;
+  margin-top: 23%;
+}
+
+#user-information{
+margin-top: 70%;
+}
+
+#send{
+  margin-top: 10%;
+
 }
 
 .active {
@@ -36,9 +78,13 @@ input {
   margin-left: 10%;
 }
 
+#firebaseui-auth-container{
+margin-top: 70%;
+}
+
 #logo {
-  width: 30%;
-  margin: -11% 0% 2% 3%;
+  width: 20%;
+  margin: 1% 0% 2% 3%;
 }
 
 #personalised-welcome {
@@ -58,6 +104,9 @@ input {
 .bg-1 {
   background-color: #54B6BF;
   color: #ffffff;
+  margin-top: 56%;
+  padding-top: 46px;
+  padding-bottom: 46px;
 }
 
 .bg-2 {
@@ -87,3 +136,11 @@ body .dribbble img {
   display: block;
   height: 28px;
 }
+
+.btn{
+  margin-top: 56%
+}
+ #wall{
+   margin-top: 7%;
+ }
+
