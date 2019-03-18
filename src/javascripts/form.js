@@ -12,7 +12,6 @@ fetch('https://tejiendo-en-azul.firebaseio.com/users.json').then(
   firebase.auth().onAuthStateChanged((user) => {
     if(user){
       userId = user.uid
-      // console.log(usersData[user.uid].nickName);
       console.log(user.uid);
     }
   })
@@ -35,6 +34,7 @@ const app = {
   nav: (ev) => {
     ev.preventDefault(); //mata evento que te lleva al inicio de la página (href="#")
     let currentPage = ev.target.getAttribute('data-target');
+    console.log(document.querySelector('.active'));
     document.querySelector('.active').classList.remove('active');
     document.getElementById(currentPage).classList.add('active');
     //recuerda la página a la que se mueve, y le agrega # a la url de la página donde está posicionado
@@ -81,70 +81,3 @@ document.addEventListener('DOMContentLoaded', app.init);
 //   })
   
 // })
-
-const db = firebase.database();
-const rootRef = firebase.database().ref();
-
-
-
-//CONSTANTES
-
-const postButton = document.getElementById('post-btn');
-const postCard = document.getElementById('post-card');
-const wall = document.getElementById('wall');
-const newPost= document.getElementById('message-text');
-
-
-
-//EVENTOS 
-
-
-postButton.addEventListener('click', (event) =>  {
-  firebase.auth().onAuthStateChanged((user) =>{
-    const newPostData = {
-      message : newPost.value
-    }
-    
-    const postDataWithUser = {
-      userId : usersData[user.uid].nickName,
-    }
-    console.log(usersData[user.uid].nickName)
-
-  const newPostKey = rootRef.child('post').push().key;
-
-  db.ref('users'+'/'+userId+'/post/'+newPostKey).update(newPostData)
-  db.ref(`wall/${newPostKey}`).update(postDataWithUser)
-})
-  event.preventDefault();
-})
-
-db.ref('wall/').on('value', (snapshot)=>{
-  
-  const allPost = snapshot.val();
-  wall.innerHTML= '';
-  
-  for (objectMessage in allPost){
-    
-    const userPost = allPost[objectMessage].userId;
-    console.log(userPost);
-    
-    const singleMessage = usersData[userId].post
-    for (const key in singleMessage) {
-      if (singleMessage.hasOwnProperty(key)) {
-        const element = singleMessage[key];
-        console.log(element.message)
-        wall.innerHTML += `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-        <div class="card-header">${userPost}</div>
-        <div class="card-body">
-        <p id="post-card" class="card-text">${element.message}</p>
-        </div>
-        </div>`
-      }
-    }
-    return 
-  }
-
-
-})
-
-
