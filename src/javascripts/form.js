@@ -90,49 +90,45 @@ const rootRef = firebase.database().ref();
 //CONSTANTES
 
 const postButton = document.getElementById('post-btn');
-// const postCard = document.getElementById('post-card');
+const postCard = document.getElementById('post-card');
 const wall = document.getElementById('wall');
+const newPost= document.getElementById('message-text');
 
 
 
 //EVENTOS 
 
-// función que guarda las publicaciones en la base de datos
-postButton.addEventListener('click', (event) => {
-  const newPost = document.getElementById('message-text').value;
-  console.log(newPost)
 
-  firebase.auth().onAuthStateChanged((user) => {
-    const newPostKey = rootRef.child('post').push().key;
+postButton.addEventListener('click', (event) =>  {
+  firebase.auth().onAuthStateChanged((user) =>{
     const newPostData = {
-      newPostKey : newPost
+      message : newPost.value
     }
-
+    
     const postDataWithUser = {
-      userId: usersData[user.uid].displayName,
+      userId : usersData[user.uid].nickName,
     }
-    console.log(usersData[user.uid].displayName)
+    console.log(usersData[user.uid].nickName)
 
+  const newPostKey = rootRef.child('post').push().key;
 
-    db.ref('users' + '/' + userId + '/post/' + newPostKey).update(newPostData)
-    db.ref(`wall/${newPostKey}`).update(postDataWithUser)
-  })
+  db.ref('users'+'/'+userId+'/post/'+newPostKey).update(newPostData)
+  db.ref(`wall/${newPostKey}`).update(postDataWithUser)
+})
   event.preventDefault();
 })
 
-//Función que imprime las publicaciones guardadas en la base de datos
-db.ref('wall/').on('value', (snapshot) => {
-
+db.ref('wall/').on('value', (snapshot)=>{
+  
   const allPost = snapshot.val();
-  wall.innerHTML = '';
-
-  for (messageKey in allPost) {
-// recorre el objeto de publicaciones
-    const userPost = allPost[messageKey].userId;
-    console.log(messageKey);
-
+  wall.innerHTML= '';
+  
+  for (objectMessage in allPost){
+    
+    const userPost = allPost[objectMessage].userId;
+    console.log(userPost);
+    
     const singleMessage = usersData[userId].post
-    console.log(singleMessage);
     for (const key in singleMessage) {
       if (singleMessage.hasOwnProperty(key)) {
         const element = singleMessage[key];
@@ -145,7 +141,7 @@ db.ref('wall/').on('value', (snapshot) => {
         </div>`
       }
     }
-    // return
+    return 
   }
 })
 
@@ -157,14 +153,12 @@ const inputPreferences = document.getElementById('validationServer04');
 
 /// Funciones
 const validateFantasticName = (string) => {
-  if (string.value === '') {
-    alert('Por favor escribe un nombre de usuario')
-  }
+if (string.value === ''){
+  alert('Por favor escribe un nombre de usuario')
+}
 }
 
 validateFantasticName(inputFantasticName);
-
-
 // Perfil de usuario
 // Foto de perfil
 const userPhoto = usersData
@@ -173,5 +167,3 @@ const userPicture = document.getElementById('user-photo').innerHTML = `
 
 // Nombre de usuario
 const userMyName = document.getElementById('user-name').innerHTML = displayName;
-
-

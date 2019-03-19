@@ -22,7 +22,7 @@ ul {
   border-radius: 5%;
 }
 
-#complete.logo {
+#complete-logo {
   display: none;
 }
 
@@ -101,6 +101,10 @@ ul {
     width: 46%;
     margin: 25% -10% 0% 0%;
   }
+
+  /* #complete.logo {
+    display: none;
+  } */
 
   #user-information {
     margin-top: 70%;

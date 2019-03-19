@@ -98,7 +98,7 @@ const observerFn = () => {
       photoURL = user.photoURL;
       const emailVerified = user.emailVerified;
       // const isAnonymous = user.isAnonymous;
-      uid = user.uid;
+      // uid = user.uid;
       // const providerData = user.providerData;
       if (emailVerified) {
         document.getElementById('general-menu').style.display = 'block';
