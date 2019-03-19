@@ -10,7 +10,7 @@ fetch('https://tejiendo-en-azul.firebaseio.com/users.json').then(
   return usersData;
 }).then((usersData) => {
   firebase.auth().onAuthStateChanged((user) => {
-    if(user){
+    if (user) {
       userId = user.uid
       console.log(user.uid);
     }
@@ -34,6 +34,7 @@ const app = {
   nav: (ev) => {
     ev.preventDefault(); //mata evento que te lleva al inicio de la página (href="#")
     let currentPage = ev.target.getAttribute('data-target');
+    console.log(document.querySelector('.active'));
     document.querySelector('.active').classList.remove('active');
     document.getElementById(currentPage).classList.add('active');
     //recuerda la página a la que se mueve, y le agrega # a la url de la página donde está posicionado
@@ -74,11 +75,11 @@ document.addEventListener('DOMContentLoaded', app.init);
 //         <p id="post-card" class="card-text">${messageText.value}</p>
 //       </div>
 //     </div>`)
-      
+
 //     }
 //     }
 //   })
-  
+
 // })
 
 ///////////////Funcion para realizar nuevos post///////////////////
@@ -119,19 +120,16 @@ db.ref('wall/').on('value', (snapshot)=>{
   
   const allPost = snapshot.val();
   wall.innerHTML= '';
-  
+  const nameUser = JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'))
   for (objectMessage in allPost){
-    const userPost = allPost[objectMessage].userId;
-    console.log(userPost);
+    const nickName = usersData[userId].nickName
     const singleMessage = usersData[userId].post;
-    
     for (const key in singleMessage) {
       if (singleMessage.hasOwnProperty(key)) {
         // if(objectMessage === key){
         const element = singleMessage[key];
-        console.log(element)
         wall.innerHTML += `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-        <div class="card-header">${userPost}</div>
+        <div class="card-header">${nickName}</div>
         <div class="card-body">
         <p id="post-card" class="card-text">${element.message}</p>
         </div>
@@ -151,10 +149,16 @@ const inputPreferences = document.getElementById('validationServer04');
 /// Funcion para validar input nombrefantastico
 const validateFantasticName = (string) => {
 if (string.value === ''){       
-  alert('Por favor escribe un nombre de usuario')
+  // alert('Por favor escribe u n nombre de usuario')
 }
 }
 
 validateFantasticName(inputFantasticName);
+// Perfil de usuario
+// Foto de perfil
+const userPhoto = usersData
+const userPicture = document.getElementById('user-photo').innerHTML = `
+  <img src = ${photoURL} alt = "Imagen de usuario">`;
 
-
+// Nombre de usuario
+const userMyName = document.getElementById('user-name').innerHTML = displayName;
