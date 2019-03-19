@@ -42,7 +42,7 @@ let uid = '';
       lastname: inputLastName,
       age: inputAge,
       nickName: inputNickName,
-      state: inputState,
+      city: inputState,
       preferences: inputPreferences,
       posts: []
     }
@@ -52,6 +52,7 @@ let uid = '';
   }
 
   const fnRead = () => {
+    
 
   }
 
@@ -82,8 +83,8 @@ let uid = '';
   mainApp.Delete = fnDelete;
 
   const sendButton = document.getElementById('send');
-  const profile = document.getElementById("profile");
-  const userInformation = document.getElementById("user-information");
+  // const profile = document.getElementById("profile");
+  // const userInformation = document.getElementById("user-information");
   sendButton.addEventListener('click', (e) => {
     event.preventDefault(e);
     fnCreate();
