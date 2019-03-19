@@ -44,6 +44,8 @@ let uid = '';
       nickName: inputNickName,
       city: inputState,
       preferences: inputPreferences,
+      photoUser: photoURL,
+      emailUser: email,
       posts: []
     }
     console.log(path);
@@ -52,8 +54,6 @@ let uid = '';
   }
 
   const fnRead = () => {
-    
-
   }
 
   const fnUpdate = () => {
@@ -66,10 +66,10 @@ let uid = '';
       // state: inputState,
       // preferences: inputPreferences,
       posts: []
-  }
-  console.log(path);
-  appFireBase.databaseApi.update(path, data, messageHandler);
-  return data;
+    }
+    console.log(path);
+    appFireBase.databaseApi.update(path, data, messageHandler);
+    return data;
 
   }
   const fnDelete = () => {
