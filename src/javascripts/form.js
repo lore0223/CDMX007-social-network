@@ -92,22 +92,20 @@ const rootRef = firebase.database().ref();
 const postButton = document.getElementById('post-btn');
 // const postCard = document.getElementById('post-card');
 const wall = document.getElementById('wall');
-const newPost = document.getElementById('message-text');
 
 
 
 //EVENTOS 
 
-
+// función que guarda las publicaciones en la base de datos
 postButton.addEventListener('click', (event) => {
+  const newPost = document.getElementById('message-text').value;
+  console.log(newPost)
+
   firebase.auth().onAuthStateChanged((user) => {
     const newPostKey = rootRef.child('post').push().key;
     const newPostData = {
-      uid: {
-        message: {
-          newPostKey : newPost.value
-        } 
-      }
+      newPostKey : newPost
     }
 
     const postDataWithUser = {
@@ -122,17 +120,19 @@ postButton.addEventListener('click', (event) => {
   event.preventDefault();
 })
 
+//Función que imprime las publicaciones guardadas en la base de datos
 db.ref('wall/').on('value', (snapshot) => {
 
   const allPost = snapshot.val();
   wall.innerHTML = '';
 
-  for (objectMessage in allPost) {
-
-    const userPost = allPost[objectMessage].userId;
-    console.log(userPost);
+  for (messageKey in allPost) {
+// recorre el objeto de publicaciones
+    const userPost = allPost[messageKey].userId;
+    console.log(messageKey);
 
     const singleMessage = usersData[userId].post
+    console.log(singleMessage);
     for (const key in singleMessage) {
       if (singleMessage.hasOwnProperty(key)) {
         const element = singleMessage[key];
@@ -145,7 +145,7 @@ db.ref('wall/').on('value', (snapshot) => {
         </div>`
       }
     }
-    return
+    // return
   }
 })
 
