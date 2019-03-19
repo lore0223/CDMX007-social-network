@@ -83,17 +83,15 @@ document.addEventListener('DOMContentLoaded', app.init);
 
 ///////////////Funcion para realizar nuevos post///////////////////
 
-const db = firebase.database();
-const rootRef = firebase.database().ref();
+const db = firebase.database();//metodo que contiene los metodos para utilizar real time
+const rootRef = firebase.database().ref();//ref es un metodo que nos premite dirigirnos a algun lugar en especifico
 
 //CONSTANTES
 
-const postButton = document.getElementById('post-btn');
-const postCard = document.getElementById('post-card');
+const postButton = document.getElementById('post');
+//const postCard = document.getElementById('post-card');
 const wall = document.getElementById('wall');
 const newPost= document.getElementById('message-text');
-
-
 
 //EVENTOS 
 
@@ -105,9 +103,9 @@ postButton.addEventListener('click', (event) =>  {
     }
     
     const postDataWithUser = {
-      userId : usersData[user.uid].nickName,
+      userId : usersData[user.uid].name,
     }
-    console.log(usersData[user.uid].nickName)
+    // console.log(postDataWithUser)
 
   const newPostKey = rootRef.child('post').push().key;
 
@@ -123,15 +121,15 @@ db.ref('wall/').on('value', (snapshot)=>{
   wall.innerHTML= '';
   
   for (objectMessage in allPost){
-    
     const userPost = allPost[objectMessage].userId;
     console.log(userPost);
+    const singleMessage = usersData[userId].post;
     
-    const singleMessage = usersData[userId].post
     for (const key in singleMessage) {
       if (singleMessage.hasOwnProperty(key)) {
+        // if(objectMessage === key){
         const element = singleMessage[key];
-        console.log(element.message)
+        console.log(element)
         wall.innerHTML += `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
         <div class="card-header">${userPost}</div>
         <div class="card-body">
@@ -150,9 +148,9 @@ db.ref('wall/').on('value', (snapshot)=>{
 const inputFantasticName = document.getElementById('validationServerUsername');
 const inputPreferences = document.getElementById('validationServer04');
 
-/// Funciones
+/// Funcion para validar input nombrefantastico
 const validateFantasticName = (string) => {
-if (string.value === ''){
+if (string.value === ''){       
   alert('Por favor escribe un nombre de usuario')
 }
 }
