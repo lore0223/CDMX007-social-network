@@ -159,6 +159,27 @@ if (string.value === ''){
 }
 
 validateFantasticName(inputFantasticName);
+
+
+
+//Input solo acepta números 
+const inputAge= document.getElementById("validationServer05");
+
+const validationAge = (number) =>{
+  if (isNaN(number.age.value)==true || /^[1-9]\d$/.test(number.age.value)==false ){
+    alert ('Edad debe ser un número'); correcto=false;}
+
+  }
+
+  //input de ciudad o estado
+
+  const inputState = document.getElementById ("validationServer03");
+
+  const validationState =(string) =>{
+    if (string.value === ""){
+      alert("Te falta decirnos de donde eres")
+    }
+  }
 // Perfil de usuario
 // Foto de perfil
 const userPhoto = usersData
@@ -167,3 +188,4 @@ const userPicture = document.getElementById('user-photo').innerHTML = `
 
 // Nombre de usuario
 const userMyName = document.getElementById('user-name').innerHTML = displayName;
+
