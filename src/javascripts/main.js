@@ -44,6 +44,8 @@ let uid = '';
       nickName: inputNickName,
       city: inputState,
       preferences: inputPreferences,
+      photoUser: photoURL,
+      emailUser: email,
       posts: []
     }
     console.log(path);
@@ -52,9 +54,6 @@ let uid = '';
   }
 
   const fnRead = () => {
-    
-
-
   }
 
   const fnUpdate = () => {

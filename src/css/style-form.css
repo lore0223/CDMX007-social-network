@@ -3,9 +3,8 @@ body {
   background-color: rgba(84, 182, 191, 0.37);
 }
 
-input {
-  width: 80%;
-  text-align: center;
+ul {
+  list-style: none;
 }
 
 .head-and-foot {
@@ -14,36 +13,17 @@ input {
   color: #0B0A06;
   z-index: 1;
   position: fixed;
-  height: 30%;
-  padding-left: 10%;
 }
 
-menu {
-  display: inline-flex;
-  margin: 0% 0% 0% -20%;
-  
-}
-
-#logout{
+#logout {
   font-size: 1rem;
   background-color: #B2080B;
   color: #F4F4F4;
-  height: 0%;
   border-radius: 5%;
-  padding: 1%;
-  width: 46%;
-  margin: 25% -15% 0% 0%;
 }
 
-ul {
-  list-style: none;
- 
-}
-
-li{
-  padding: 0%;
-  /* border: 2px solid #ccc; */
-  text-align: center;
+#complete.logo {
+  display: none;
 }
 
 .page {
@@ -55,54 +35,17 @@ li{
   margin-top: 23%;
 }
 
-#user-information{
-margin-top: 70%;
-}
-
-#send{
-  margin-top: 10%;
-
-}
-
 .active {
   display: block;
 }
 
-.hide{
-     display: none;
- }
- 
-#container {
-  width: 80%;
-  display: grid;
-  margin-left: 10%;
-}
-
-#firebaseui-auth-container{
-margin-top: 70%;
-}
-
-#logo {
-  width: 20%;
-  margin: 1% 0% 2% 3%;
-}
-
-#personalised-welcome {
-  width: 60%;
-  margin: -3% -3% -3% 3%;
-  display: -webkit-inline-box;
-  padding-top: 10%;
-  text-align: center;
-}
-
-#send {
-  background-color: #B2080B;
-  color: #F4F4F4;
+.hide {
+  display: none;
 }
 
 /* profile */
 .bg-1 {
-  background-color: #54B6BF;
+  background-color: #195259;
   color: #ffffff;
   margin-top: 56%;
   padding-top: 46px;
@@ -110,12 +53,12 @@ margin-top: 70%;
 }
 
 .bg-2 {
-  background-color: #474e5d;
+  background-color: rgb(131, 5, 7);
   color: #ffffff;
 }
 
 .bg-3 {
-  background-color: #ffffff;
+  background-color: #F4F4F4;
   color: #555555;
 }
 
@@ -125,22 +68,204 @@ margin-top: 70%;
 }
 
 /* termina profile */
-body .dribbble {
-  position: fixed;
-  display: block;
-  right: 20px;
-  bottom: 20px;
+
+/* Mobile design */
+@media only screen and (max-width: 600px) {
+  input {
+    width: 80%;
+    text-align: center;
+  }
+
+  menu {
+    display: inline-flex;
+    margin: 0% 0% 0% -20%;
+  }
+
+  li {
+    padding: 0%;
+    text-align: center;
+  }
+
+  .head-and-foot {
+    height: 30%;
+    padding-left: 5%;
+  }
+
+  .page {
+    margin-top: 23%;
+  }
+
+  #logout {
+    height: 0%;
+    padding: 1%;
+    width: 46%;
+    margin: 25% -10% 0% 0%;
+  }
+
+  #user-information {
+    margin-top: 70%;
+  }
+
+  #send {
+    margin-top: 10%;
+  }
+
+  #container {
+    width: 80%;
+    display: grid;
+    margin-left: 10%;
+  }
+
+  #firebaseui-auth-container {
+    margin-top: 70%;
+  }
+
+  #logo {
+    width: 20%;
+    margin: 1% 0% 2% 3%;
+  }
+
+  #personalised-welcome {
+    width: 60%;
+    margin: -3% -3% -3% 3%;
+    display: -webkit-inline-box;
+    padding-top: 10%;
+    text-align: center;
+  }
+
+  #send {
+    background-color: #B2080B;
+    color: #F4F4F4;
+  }
+
+  /* profile */
+  .bg-1 {
+    background-color: #195259;
+    color: #ffffff;
+    margin-top: 56%;
+    padding-top: 46px;
+    padding-bottom: 46px;
+  }
+
+  .bg-2 {
+    background-color: rgb(131, 5, 7);
+    color: #ffffff;
+  }
+
+  .bg-3 {
+    background-color: #F4F4F4;
+    color: #555555;
+  }
+
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  /* termina profile */
+  body .dribbble {
+    position: fixed;
+    display: block;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  body .dribbble img {
+    display: block;
+    height: 28px;
+  }
+
+  #post-btn {
+    margin-top: 45%;
+  }
+
+  #wall {
+    margin-top: 7%;
+  }
 }
 
-body .dribbble img {
-  display: block;
-  height: 28px;
+/* Para tablets */
+@media only screen and (min-width: 600px) {
+  .head-and-foot {
+    padding: 2% 0% 2% 0%;
+    display: flex;
+    margin-top: -3%;
+    height: 25%;
+  }
+
+  menu {
+    display: block;
+    margin: 0% 0% 0% 0%;
+  }
+
+  ul {
+    margin-top: 5%;
+  }
+
+  a {
+    size: 1.5rem;
+  }
+
+  #logo {
+    width: 19%;
+    margin: 7% 0% 0% 3%;
+    height: 75%;
+  }
+
+  #personalised-welcome {
+    margin: 2% 0% 0% -20%;
+  }
+
+  #logout {
+    padding: 3%;
+    width: 46%;
+    margin: -4% 0% 0% 110%;
+  }
+
+  .page {
+    margin-top: 25%;
+  }
+
+  /* #wall {
+    margin-top: 7%;
+  } */
+
+  #profile {
+    margin-top: -25%;
+  }
 }
 
-.btn{
-  margin-top: 56%
-}
- #wall{
-   margin-top: 7%;
- }
+/* Laptops y desktops */
+@media only screen and (min-width: 992px) {
+  .head-and-foot {
+    padding: 2% 0% 2% 0%;
+    display: flex;
+    margin-top: -3%;
+    height: 35%;
+  }
 
+  #logo {
+    display: none;
+  }
+
+  #complete-logo {
+    display: block;
+    width: 31%;
+    height: 142%;
+    margin: -2% 0% 0% 4%;
+  }
+
+  ul {
+    margin: 30% 0% 0% 40%;
+    display: -webkit-box;
+  }
+  
+  li{
+    border: solid thin #0B0A06;
+    margin-top: -15%;
+  }
+
+  #logout{
+    margin: -4% 0% 0% 0%;
+  }
+}

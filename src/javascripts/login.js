@@ -86,22 +86,32 @@ firebaseContainer.addEventListener('click', () => {
 
  //Función de observador de estado de usuarios
 //  const menu = 
+let displayName = '';
+let email = '';
+let photoURL = '';
 const observerFn = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       console.log('hay usuario activo')
-
-      if (user.emailVerified) {
-       document.getElementById('general-menu').style.display = 'block';
-       //  document.getElementById('login').classList.remove('active'); 
-       window.location.replace("#profile");      
+      displayName = user.displayName;
+      email = user.email;
+      photoURL = user.photoURL;
+      const emailVerified = user.emailVerified;
+      // const isAnonymous = user.isAnonymous;
+      uid = user.uid;
+      // const providerData = user.providerData;
+      if (emailVerified) {
+        document.getElementById('general-menu').style.display = 'block';
+        //  document.getElementById('login').classList.remove('active'); 
+        window.location.replace("#profile");  
       }
-      // ...
+      console.log(displayName, email, photoURL, uid);
+      
     } else {
       console.log('no hay usuario activo')
       uid = null;
       document.getElementById('general-menu').style.display = 'block';
-     //  document.getElementById('login').classList.add('active');
+      //  document.getElementById('login').classList.add('active');
       window.location.replace("#login");
       
       // User is signed out.

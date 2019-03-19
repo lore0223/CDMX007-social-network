@@ -10,7 +10,7 @@ fetch('https://tejiendo-en-azul.firebaseio.com/users.json').then(
   return usersData;
 }).then((usersData) => {
   firebase.auth().onAuthStateChanged((user) => {
-    if(user){
+    if (user) {
       userId = user.uid
       console.log(user.uid);
     }
@@ -75,11 +75,11 @@ document.addEventListener('DOMContentLoaded', app.init);
 //         <p id="post-card" class="card-text">${messageText.value}</p>
 //       </div>
 //     </div>`)
-      
+
 //     }
 //     }
 //   })
-  
+
 // })
 
 ///////////////Funcion para realizar nuevos post///////////////////
@@ -90,44 +90,48 @@ const rootRef = firebase.database().ref();
 //CONSTANTES
 
 const postButton = document.getElementById('post-btn');
-const postCard = document.getElementById('post-card');
+// const postCard = document.getElementById('post-card');
 const wall = document.getElementById('wall');
-const newPost= document.getElementById('message-text');
+const newPost = document.getElementById('message-text');
 
 
 
 //EVENTOS 
 
 
-postButton.addEventListener('click', (event) =>  {
-  firebase.auth().onAuthStateChanged((user) =>{
+postButton.addEventListener('click', (event) => {
+  firebase.auth().onAuthStateChanged((user) => {
+    const newPostKey = rootRef.child('post').push().key;
     const newPostData = {
-      message : newPost.value
+      uid: {
+        message: {
+          newPostKey : newPost.value
+        } 
+      }
     }
-    
+
     const postDataWithUser = {
-      userId : usersData[user.uid].nickName,
+      userId: usersData[user.uid].displayName,
     }
-    console.log(usersData[user.uid].nickName)
+    console.log(usersData[user.uid].displayName)
 
-  const newPostKey = rootRef.child('post').push().key;
 
-  db.ref('users'+'/'+userId+'/post/'+newPostKey).update(newPostData)
-  db.ref(`wall/${newPostKey}`).update(postDataWithUser)
-})
+    db.ref('users' + '/' + userId + '/post/' + newPostKey).update(newPostData)
+    db.ref(`wall/${newPostKey}`).update(postDataWithUser)
+  })
   event.preventDefault();
 })
 
-db.ref('wall/').on('value', (snapshot)=>{
-  
+db.ref('wall/').on('value', (snapshot) => {
+
   const allPost = snapshot.val();
-  wall.innerHTML= '';
-  
-  for (objectMessage in allPost){
-    
+  wall.innerHTML = '';
+
+  for (objectMessage in allPost) {
+
     const userPost = allPost[objectMessage].userId;
     console.log(userPost);
-    
+
     const singleMessage = usersData[userId].post
     for (const key in singleMessage) {
       if (singleMessage.hasOwnProperty(key)) {
@@ -141,7 +145,7 @@ db.ref('wall/').on('value', (snapshot)=>{
         </div>`
       }
     }
-    return 
+    return
   }
 })
 
@@ -153,11 +157,21 @@ const inputPreferences = document.getElementById('validationServer04');
 
 /// Funciones
 const validateFantasticName = (string) => {
-if (string.value === ''){
-  alert('Por favor escribe un nombre de usuario')
-}
+  if (string.value === '') {
+    alert('Por favor escribe un nombre de usuario')
+  }
 }
 
 validateFantasticName(inputFantasticName);
+
+
+// Perfil de usuario
+// Foto de perfil
+const userPhoto = usersData
+const userPicture = document.getElementById('user-photo').innerHTML = `
+  <img src = ${photoURL} alt = "Imagen de usuario">`;
+
+// Nombre de usuario
+const userMyName = document.getElementById('user-name').innerHTML = displayName;
 
 
