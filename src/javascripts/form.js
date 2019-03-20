@@ -106,7 +106,13 @@ db.ref('users/').on('value', (snapshot) => {
                <div class="card-body">
                <p id="post-card" class="card-text">${element.message}</p>
                </div>
+               <div><i id=${eachPost} class="far fa-trash-alt"></i></div>
                </div>`)
+      firebase.auth().onAuthStateChanged((user) => {
+        if(!!user ){
+          document.getElementById(eachPost).style.display='none';
+        }
+      })
       }
     }
   }
