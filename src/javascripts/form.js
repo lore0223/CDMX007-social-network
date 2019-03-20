@@ -83,8 +83,8 @@ postButton.addEventListener('click', (event) => {
 
     const newPostKey = rootRef.child('post').push().key;
 
-    db.ref('users' + '/' + userId + '/post/' + newPostKey).update(newPostData)
-    db.ref(`wall/${newPostKey}`).update(postDataWithUser)
+    db.ref('users' + '/' + userId + '/post/' + newPostKey).update(newPostData);
+    db.ref(`wall/${newPostKey}`).update(postDataWithUser);
   })
   event.preventDefault();
 })
