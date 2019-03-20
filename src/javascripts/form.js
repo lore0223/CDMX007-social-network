@@ -196,6 +196,8 @@ const validateFantasticName = (string) => {
 }
 
 validateFantasticName(inputFantasticName);
+<<<<<<< HEAD
+=======
 
 
 
@@ -219,6 +221,7 @@ const validationState = (string) => {
     alert("Te falta decirnos de donde eres")
   }
 }
+>>>>>>> upstream/master
 // Perfil de usuario
 // Foto de perfil
 const userPhoto = usersData
