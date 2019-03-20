@@ -67,9 +67,8 @@ const postButton = document.getElementById('post');
 const wall = document.getElementById('wall');
 const newPost = document.getElementById('message-text');
 
+
 //EVENTOS 
-
-
 postButton.addEventListener('click', (event) => {
   firebase.auth().onAuthStateChanged((user) => {
     const newPostData = {
@@ -83,8 +82,8 @@ postButton.addEventListener('click', (event) => {
 
     const newPostKey = rootRef.child('post').push().key;
 
-    db.ref('users' + '/' + userId + '/post/' + newPostKey).update(newPostData)
-    db.ref(`wall/${newPostKey}`).update(postDataWithUser)
+    db.ref('users' + '/' + userId + '/post/' + newPostKey).update(newPostData);
+    db.ref(`wall/${newPostKey}`).update(postDataWithUser);
   })
   event.preventDefault();
 })
@@ -97,29 +96,64 @@ db.ref('users/').on('value', (snapshot) => {
     const usersPosts = usersData[usersId].post; //obtenemos los posts de cada usuario
     for (eachPost in usersPosts) {
       if (usersPosts.hasOwnProperty(eachPost)) {
-        // if(objectMessage === key){
         const element = usersPosts[eachPost];
         console.log(element);
         console.log(eachPost)
-        wall.insertAdjacentHTML('beforeend', `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        wall.insertAdjacentHTML('afterend', `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                <div class="card-header">${usersNickName}</div>
                <div class="card-body">
                <p id="post-card" class="card-text">${element.message}</p>
-               </div>
-               <div><i id=${eachPost} class="far fa-trash-alt"></i></div>
+               </div> 
+               <button id="${eachPost}" class = "trash-btn"><i class="far fa-trash-alt"></i></button>
                </div>`)
-      firebase.auth().onAuthStateChanged((user) => {
-        if(!!user ){
-          document.getElementById(eachPost).style.display='none';
+        //identifica al usuario activo, y compara su id con los id de la base de datos
+        if (firebase.auth().currentUser.uid !== usersId) {
+          //siempre que el id no coincida con el de usuario activo, va a quitar el ícono de basurita
+          // por lo tanto usuario solo tendrá acceso a borrar sus publicaciones
+          document.getElementById(eachPost).style.display = 'none';
         }
-      })
       }
     }
   }
+  //evento click en botón basurita
+  const deleteElement = document.getElementsByClassName('trash-btn');
+  console.log(deleteElement);
+  for (let i = 0; i < deleteElement.length; i++) {
+    deleteElement[i].addEventListener('click', (ev) => {
+      // postId = deleteElement[i].id;
+      const postId = ev.currentTarget.id;
+      console.log(postId);
+      fnDelete(uid, postId);
 
+      // db.ref('users' + '/' + userId + '/post/' + newPostKey).update(newPostData);
+      // db.ref(`wall/${newPostKey}`).update(postDataWithUser);
+    })
+  }
 })
 
+//////// función para borrar publicaciones ///////////
+const fnDelete = (uid, postId) => {
+  db.ref('users/').on('value', (snapshot) => {
+    console.log('mensaje borrado')
 
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!!user) {
+        const allUsers = snapshot.val(); //retorna el objeto de usuarios de base de datos
+        for (usersId in allUsers) {
+          if (usersId === uid) {
+            const usersPosts = usersData[usersId].post;
+            for (eachPost in usersPosts) {
+              if (eachPost === postId) {
+                // const element = usersPosts[eachPost];
+                db.ref('users' + '/' + userId + '/post/' + eachPost).set(null);
+              }
+            }
+          }
+        }
+      }
+    })
+  })
+}
 ///////////////// CÓDIGO PARA PINTAR PUBLICACIONES DEL USUARIO LOGEADO /////////////////
 
 // db.ref('wall/').on('value', (snapshot)=>{
