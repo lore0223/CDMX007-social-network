@@ -10,7 +10,7 @@ fetch('https://tejiendo-en-azul.firebaseio.com/users.json').then(
   return usersData;
 }).then((usersData) => {
   firebase.auth().onAuthStateChanged((user) => {
-    if(user){
+    if (user) {
       userId = user.uid
       console.log(user.uid);
     }
@@ -34,6 +34,7 @@ const app = {
   nav: (ev) => {
     ev.preventDefault(); //mata evento que te lleva al inicio de la página (href="#")
     let currentPage = ev.target.getAttribute('data-target');
+    console.log(document.querySelector('.active'));
     document.querySelector('.active').classList.remove('active');
     document.getElementById(currentPage).classList.add('active');
     //recuerda la página a la que se mueve, y le agrega # a la url de la página donde está posicionado
@@ -74,11 +75,11 @@ document.addEventListener('DOMContentLoaded', app.init);
 //         <p id="post-card" class="card-text">${messageText.value}</p>
 //       </div>
 //     </div>`)
-      
+
 //     }
 //     }
 //   })
-  
+
 // })
 
 ///////////////Funcion para realizar nuevos post///////////////////
@@ -158,23 +159,11 @@ if (string.value === ''){
 }
 
 validateFantasticName(inputFantasticName);
+// Perfil de usuario
+// Foto de perfil
+const userPhoto = usersData
+const userPicture = document.getElementById('user-photo').innerHTML = `
+  <img src = ${photoURL} alt = "Imagen de usuario">`;
 
-
-//Input solo acepta números 
-const inputAge= document.getElementById("validationServer05");
-
-const validationAge = (number) =>{
-  if (isNaN(number.age.value)==true || /^[1-9]\d$/.test(number.age.value)==false ){
-    alert ('Edad debe ser un número'); correcto=false;}
-
-  }
-
-  //input de ciudad o estado
-
-  const inputState = document.getElementById ("validationServer03");
-
-  const validationState =(string) =>{
-    if (string.value === ""){
-      alert("Te falta decirnos de donde eres")
-    }
-  }
+// Nombre de usuario
+const userMyName = document.getElementById('user-name').innerHTML = displayName;
