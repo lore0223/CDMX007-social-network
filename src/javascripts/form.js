@@ -92,6 +92,7 @@ db.ref('users/').on('value', (snapshot) => {
   const allUsers = snapshot.val(); //retorna el objeto de usuarios de base de datos
   wall.innerHTML = '';
   for (usersId in allUsers) {
+    console.log(allUsers);
     const usersNickName = usersData[usersId].nickName; //obtenemos los nicknames de todos los usuarios
     const usersPosts = usersData[usersId].post; //obtenemos los posts de cada usuario
     for (eachPost in usersPosts) {
@@ -107,10 +108,10 @@ db.ref('users/').on('value', (snapshot) => {
                <button id="${eachPost}" class = "trash-btn"><i class="far fa-trash-alt"></i></button>
                </div>`)
         //identifica al usuario activo, y compara su id con los id de la base de datos
-        if (firebase.auth().currentUser.uid !== usersId) {
+         if (firebase.auth().currentUser.uid !== usersId) {
           //siempre que el id no coincida con el de usuario activo, va a quitar el ícono de basurita
           // por lo tanto usuario solo tendrá acceso a borrar sus publicaciones
-          document.getElementById(eachPost).style.display = 'none';
+           document.getElementById(eachPost).style.display = 'none';
         }
       }
     }
@@ -120,11 +121,20 @@ db.ref('users/').on('value', (snapshot) => {
   console.log(deleteElement);
   for (let i = 0; i < deleteElement.length; i++) {
     deleteElement[i].addEventListener('click', (ev) => {
-      // postId = deleteElement[i].id;
-      const postId = ev.currentTarget.id;
-      console.log(postId);
-      fnDelete(uid, postId);
-
+      ///Alert para confirmar delete
+      const option = confirm("Estás seguro de que quieres eliminar tu publicación");
+          if (option == true) {
+            //message = "Mensaje Borrado";
+            console.log(firebase.auth().currentUser.uid, usersId);
+            const postId = ev.currentTarget.id;
+            console.log(postId);
+            fnDelete(uid, postId);
+        } else {
+            alert ("Cancelado");
+        }
+      
+      
+      
       // db.ref('users' + '/' + userId + '/post/' + newPostKey).update(newPostData);
       // db.ref(`wall/${newPostKey}`).update(postDataWithUser);
     })
@@ -135,7 +145,7 @@ db.ref('users/').on('value', (snapshot) => {
 const fnDelete = (uid, postId) => {
   db.ref('users/').on('value', (snapshot) => {
     console.log('mensaje borrado')
-
+    
     firebase.auth().onAuthStateChanged((user) => {
       if (!!user) {
         const allUsers = snapshot.val(); //retorna el objeto de usuarios de base de datos
@@ -154,6 +164,8 @@ const fnDelete = (uid, postId) => {
     })
   })
 }
+
+
 ///////////////// CÓDIGO PARA PINTAR PUBLICACIONES DEL USUARIO LOGEADO /////////////////
 
 // db.ref('wall/').on('value', (snapshot)=>{
@@ -196,8 +208,6 @@ const validateFantasticName = (string) => {
 }
 
 validateFantasticName(inputFantasticName);
-
-
 
 //Input solo acepta números 
 const inputAge = document.getElementById("validationServer05");
