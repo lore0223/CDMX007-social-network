@@ -96,6 +96,8 @@ db.ref('users/').on('value', (snapshot) => {
     const usersNickName = usersData[usersId].nickName; //obtenemos los nicknames de todos los usuarios
     const usersPosts = usersData[usersId].post; //obtenemos los posts de cada usuario
     const usersPicture = usersData[usersId].photoUser;
+    const usersName = usersData[usersId].name;
+    const usersPreferences = usersData[usersId].preferences;
     for (eachPost in usersPosts) {
       if (usersPosts.hasOwnProperty(eachPost)) {
         const element = usersPosts[eachPost];
@@ -107,18 +109,27 @@ db.ref('users/').on('value', (snapshot) => {
                <div class="card-body">
                <p id="post-card" class="card-text">${element.message}</p>
                </div> 
-               <button id="${eachPost}" class = "trash-btn"><i class="far fa-trash-alt"></i></button>
+               <div id="${usersId}"><button id="${eachPost}" class = "trash-btn"><i class="far fa-trash-alt"></i></button>
+               <button >Editar publicación</button></div>
                </div>`)
         //identifica al usuario activo, y compara su id con los id de la base de datos
         if (firebase.auth().currentUser.uid !== usersId) {
           //siempre que el id no coincida con el de usuario activo, va a quitar el ícono de basurita
           // por lo tanto usuario solo tendrá acceso a borrar sus publicaciones
-          document.getElementById(eachPost).style.display = 'none';
+          document.getElementById(usersId).style.display = 'none';
         }
       }
-      const userPicture = document.getElementById('user-photo').innerHTML = `
-        <img src = " ${photoURL} " alt = "Imagen de usuario">`;
-        console.log(userPicture);
+      //sección perfil usuario
+      //Primera parte
+      if (firebase.auth().currentUser.uid === usersId) {
+        document.getElementById('user-photo').innerHTML = `
+                        <img src = " ${photoURL} " alt = "Imagen de usuario">`;
+        document.getElementById('user-name').innerHTML = usersName;
+        //Segunda parte
+        document.getElementById('nick-name').innerHTML = `<br>${usersNickName}</br>`;
+        //Tercera parte
+        document.getElementById('preferences').innerHTML = `<br>${usersPreferences}</br>`;
+      }
     }
   }
   //evento click en botón basurita
@@ -245,5 +256,3 @@ const validationState = (string) => {
 
 // Nombre de usuario
 const userMyName = document.getElementById('user-name').innerHTML = displayName;
-
-
