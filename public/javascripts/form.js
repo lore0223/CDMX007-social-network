@@ -95,25 +95,30 @@ db.ref('users/').on('value', (snapshot) => {
     console.log(allUsers);
     const usersNickName = usersData[usersId].nickName; //obtenemos los nicknames de todos los usuarios
     const usersPosts = usersData[usersId].post; //obtenemos los posts de cada usuario
+    const usersPicture = usersData[usersId].photoUser;
     for (eachPost in usersPosts) {
       if (usersPosts.hasOwnProperty(eachPost)) {
         const element = usersPosts[eachPost];
         console.log(element);
         console.log(eachPost)
         wall.insertAdjacentHTML('afterend', `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-               <div class="card-header">${usersNickName}</div>
+        <figure><img src = "${usersPicture}" alt = "Imagen de usuario"></figure>
+        <div class="card-header">${usersNickName}</div>
                <div class="card-body">
                <p id="post-card" class="card-text">${element.message}</p>
                </div> 
                <button id="${eachPost}" class = "trash-btn"><i class="far fa-trash-alt"></i></button>
                </div>`)
         //identifica al usuario activo, y compara su id con los id de la base de datos
-         if (firebase.auth().currentUser.uid !== usersId) {
+        if (firebase.auth().currentUser.uid !== usersId) {
           //siempre que el id no coincida con el de usuario activo, va a quitar el ícono de basurita
           // por lo tanto usuario solo tendrá acceso a borrar sus publicaciones
-           document.getElementById(eachPost).style.display = 'none';
+          document.getElementById(eachPost).style.display = 'none';
         }
       }
+      const userPicture = document.getElementById('user-photo').innerHTML = `
+        <img src = " ${photoURL} " alt = "Imagen de usuario">`;
+        console.log(userPicture);
     }
   }
   //evento click en botón basurita
@@ -123,18 +128,18 @@ db.ref('users/').on('value', (snapshot) => {
     deleteElement[i].addEventListener('click', (ev) => {
       ///Alert para confirmar delete
       const option = confirm("Estás seguro de que quieres eliminar tu publicación");
-          if (option == true) {
-            //message = "Mensaje Borrado";
-            console.log(firebase.auth().currentUser.uid, usersId);
-            const postId = ev.currentTarget.id;
-            console.log(postId);
-            fnDelete(uid, postId);
-        } else {
-            alert ("Cancelado");
-        }
-      
-      
-      
+      if (option == true) {
+        //message = "Mensaje Borrado";
+        console.log(firebase.auth().currentUser.uid, usersId);
+        const postId = ev.currentTarget.id;
+        console.log(postId);
+        fnDelete(uid, postId);
+      } else {
+        alert("Cancelado");
+      }
+
+
+
       // db.ref('users' + '/' + userId + '/post/' + newPostKey).update(newPostData);
       // db.ref(`wall/${newPostKey}`).update(postDataWithUser);
     })
@@ -145,7 +150,7 @@ db.ref('users/').on('value', (snapshot) => {
 const fnDelete = (uid, postId) => {
   db.ref('users/').on('value', (snapshot) => {
     console.log('mensaje borrado')
-    
+
     firebase.auth().onAuthStateChanged((user) => {
       if (!!user) {
         const allUsers = snapshot.val(); //retorna el objeto de usuarios de base de datos
@@ -231,9 +236,14 @@ const validationState = (string) => {
 }
 // Perfil de usuario
 // Foto de perfil
-const userPhoto = usersData
-const userPicture = document.getElementById('user-photo').innerHTML = `
-  <img src = ${photoURL} alt = "Imagen de usuario">`;
+// const userPhoto = usersData
+
+// // const pictureUser = firebase.auth().currentUser.photoURL;
+// // console.log(pictureUser)
+// const userPicture = document.getElementById('user-photo').innerHTML = `
+//   <img src = "${pictureUser}" alt = "Imagen de usuario">`
 
 // Nombre de usuario
 const userMyName = document.getElementById('user-name').innerHTML = displayName;
+
+
