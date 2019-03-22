@@ -57,6 +57,7 @@ firebaseContainer.addEventListener('click', () => {
   firebase.auth().signInWithRedirect(provider)
     .catch(e => console.log(e.message))
   firebase.auth().getRedirectResult().then(() => {
+    
     //pide verificar el correo mediante una liga que llega a su cuenta de email
     verifyEmail();
   }).catch(function (error) {
@@ -82,6 +83,7 @@ firebaseContainer.addEventListener('click', () => {
     alert(errorCode);
     alert(errorMessage);
   });
+  window.location.replace("#profile");
 })
 
  //Función de observador de estado de usuarios
