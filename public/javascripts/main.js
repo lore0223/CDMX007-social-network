@@ -9,13 +9,40 @@ let uid = '';
       console.log(user);
       // Usuario está registrado
       uid = user.uid;
-      window.location.replace("#profile");
-    } else {
-      //redirecciona a la pagina para login
-      uid = null;
-      window.location.replace("#login")
+      displayName = user.displayName;
+      email = user.email;
+      photoURL = user.photoURL;
+
+      firebase.database().ref('users/').on('value', (snapshot) => {
+        // let str = '';
+        const allUsers = snapshot.val(); //retorna el objeto de usuarios de base de datos
+       
+        for (const key in allUsers) {
+          if (allUsers.hasOwnProperty(key)) {
+            const element = allUsers[key];  
+            if (uid === key) {
+              console.log(uid)
+              console.log(userId)
+              window.location.replace("#user-wall");
+              console.log('uid en base de datos')
+              break
+            } else if(uid !== key ) {
+              window.location.replace("#user-information");
+              console.log('NO uid en base de datos')
+            }
+
+          }
+        }
+      })
+      if (uid === null || uid === undefined) {
+        window.location.replace("#login")
+        console.log('uid nulo')
+        return
+      }
     }
-  });
+  })
+
+
 
   const logOut = () => {
     firebase.auth().signOut();
@@ -53,18 +80,11 @@ let uid = '';
     return data;
   }
 
-  const fnRead = () => {
-  }
+  const fnRead = () => {}
 
   const fnUpdate = () => {
     const path = 'users/' + uid;
     data = {
-      // name: inputName,
-      // lastname: inputLastName,
-      // age: inputAge,
-      // nickName: inputNickName,
-      // state: inputState,
-      // preferences: inputPreferences,
       posts: []
     }
     console.log(path);
@@ -83,13 +103,10 @@ let uid = '';
   mainApp.Delete = fnDelete;
 
   const sendButton = document.getElementById('send');
-  // const profile = document.getElementById("profile");
-  // const userInformation = document.getElementById("user-information");
   sendButton.addEventListener('click', (e) => {
     event.preventDefault(e);
     fnCreate();
-    // profile.style.display = "block";
-    // userInformation.style.display = "none";
+    window.location.replace("#profile");
   })
   const newPostProfile = document.getElementById('message-text');
   newPostProfile.addEventListener('click', () => {
