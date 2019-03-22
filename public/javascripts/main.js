@@ -109,9 +109,10 @@ let uid = '';
    window.location.replace("#profile");
  })
  const newPostProfile = document.getElementById('message-text');
- newPostProfile.addEventListener('click', () => {
+ newPostProfile.addEventListener('click',  () => {
    console.log('función update');
    fnUpdate();
- })
+
+  })
  mainApp.logOut = logOut;
 })();

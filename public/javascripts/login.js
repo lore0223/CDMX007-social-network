@@ -55,7 +55,7 @@ const firebaseContainer = document.getElementById('firebaseui-auth-container');
 firebaseContainer.addEventListener('click', () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithRedirect(provider)
-    .catch(e => console.log(e.message))
+  .catch(e => console.log(e.message))
   firebase.auth().getRedirectResult().then(() => {
     
     //pide verificar el correo mediante una liga que llega a su cuenta de email
@@ -134,4 +134,5 @@ const logOut = () => {
 const logOutButton = document.getElementById('logout');
 logOutButton.addEventListener('click', () => {
   logOut();
+  location.reload();
 })
