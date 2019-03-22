@@ -86,6 +86,7 @@ postButton.addEventListener('click', (event) => {
     db.ref(`wall/${newPostKey}`).update(postDataWithUser);
   })
   event.preventDefault();
+location.reload();
 })
 
 db.ref('users/').on('value', (snapshot) => {
@@ -145,6 +146,7 @@ db.ref('users/').on('value', (snapshot) => {
         const postId = ev.currentTarget.id;
         console.log(postId);
         fnDelete(uid, postId);
+        location.reload();
       } else {
         alert("Cancelado");
       }
