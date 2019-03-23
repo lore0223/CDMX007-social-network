@@ -19,7 +19,7 @@
     },
     // se usa popup para el ingreso del flujo de los provedores de IDP en lugar del predeterminado, redirecciona.
     signInFlow: 'popup',
-    signInSuccessUrl: "./login.html#user-information",
+    signInSuccessUrl: "#",
     signInOptions: [
       // Solo dejamos las líneas de las formas de registro que vamos a utilizar.
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
