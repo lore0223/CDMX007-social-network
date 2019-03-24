@@ -5,6 +5,8 @@ body {
 
 ul {
   list-style: none;
+  width: 79%;
+  font-size: 61%;
 }
 
 .fixed{
@@ -23,7 +25,7 @@ ul {
  }
 
 #logout {
-  font-size: 1rem;
+  font-size: 78%;
   background-color: #B2080B;
   color: #F4F4F4;
   border-radius: 5%;
@@ -123,16 +125,18 @@ ul {
   }
 
   .page {
-    margin-top: -12%;
+    margin-top: 2%;
+    width: 71%;
     text-align: center;
   }
 
   #logout {
     height: 0%;
     padding: 1%;
-    width: 157%;
-    margin: 14% 0% 0% 8%;
-  }
+    width: 105%;
+    margin: -94% 0% 0% 184%;
+    z-index: 1;
+    }
 
   /* #complete.logo {
     display: none;
@@ -197,7 +201,7 @@ ul {
     padding-top: 70px;
     padding-bottom: 70px;
   }
-
+  
   /* termina profile */
   body .dribbble {
     position: fixed;
@@ -205,16 +209,25 @@ ul {
     right: 20px;
     bottom: 20px;
   }
-
+  
   body .dribbble img {
     display: block;
     height: 28px;
   }
-
-  #post-btn {
-    margin-top: 45%;
+  .publicaciones{
+    width: 67%;
   }
-
+  
+  #post-btn {
+    margin-top: 54%;
+    font-size: 70%;
+    margin-left: 47%;
+    padding: 2%;
+  }
+  
+.trash-btn{
+  margin-left: 85%;
+}
   #wall {
     margin-top: 7%;
     max-width: 32rem;
@@ -262,11 +275,9 @@ ul {
 
   .page {
     margin-top: 25%;
+    
   }
 
-  /* #wall {
-    margin-top: 7%;
-  } */
 
   #profile {
     margin-top: -25%;

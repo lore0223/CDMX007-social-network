@@ -38,17 +38,7 @@
   ui.start('#firebaseui-auth-container', uiConfig);
 })();
 
-// Verificar correo de nuevo usuario
-// const verifyEmail = () => {
-//   const user = firebase.auth().currentUser;
-//   user.sendEmailVerification().then(() => {
-//     // Email sent.
-//     console.log('enviando correo');
-//   }).catch((error) => {
-//     // An error happened.
-//     console.log(error);
-//   });
-// }
+
 
 //Acceso con Google
 const firebaseContainer = document.getElementById('firebaseui-auth-container');
@@ -100,19 +90,16 @@ const observerFn = () => {
       console.log('hay usuario activo')
       // displayName = user.displayName;
       // email = user.email;
-      photoURL = user.photoURL === undefined ? photoURL = '../images/perfil.png': photoURL = user.photoURL;
-      console.log(photoURL);
-      
+       //photoURL = user.photoURL
       // const emailVerified = user.emailVerified;
       // const isAnonymous = user.isAnonymous;
       // uid = user.uid;
       // const providerData = user.providerData;
       if (emailVerified) {
         document.getElementById('general-menu').style.display = 'block';
-        //  document.getElementById('login').classList.remove('active'); 
+      //   document.getElementById('login').classList.remove('active'); 
         // window.location.replace("#profile");
       }
-      console.log(displayName, email, photoURL, uid);
       
     } else {
       console.log('no hay usuario activo')
@@ -120,9 +107,6 @@ const observerFn = () => {
       document.getElementById('general-menu').style.display = 'block';
       //  document.getElementById('login').classList.add('active');
       window.location.replace("#login");
-      
-      // User is signed out.
-      // ...
     }
   })
 }

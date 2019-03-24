@@ -75,7 +75,6 @@ let uid = '';
      emailUser: email,
      posts: []
    }
-   
    console.log(path);
    appFireBase.databaseApi.create(path, data, messageHandler);
    return data;
