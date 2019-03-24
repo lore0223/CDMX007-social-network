@@ -7,12 +7,16 @@ ul {
   list-style: none;
 }
 
+.fixed{
+  position: fixed;
+}
+
 .head-and-foot {
   width: 100%;
   background-color: #F4F4F4;
   color: #0B0A06;
   z-index: 1;
-  position: fixed;
+  
 }
  .fa-bars{
    margin-left: 30%
@@ -23,6 +27,7 @@ ul {
   background-color: #B2080B;
   color: #F4F4F4;
   border-radius: 5%;
+  
 }
 
 #complete-logo {
@@ -44,6 +49,25 @@ ul {
 
 .hide {
   display: none;
+}
+
+.bar {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+#header-buttons {
+  display: none;
+  background-color: #F2F2ED;
+  color: #F2F2ED;
+  text-align: left;
+}
+
+#burger {
+  margin: 0% 98% 0% -6%;
 }
 
 /* profile */
@@ -69,8 +93,13 @@ ul {
   padding-top: 70px;
   padding-bottom: 70px;
 }
-
 /* termina profile */
+
+#user-photo{
+  width: 25%;
+  margin-left: 37%;
+  
+}
 
 /* Mobile design */
 @media only screen and (max-width: 600px) {
@@ -80,8 +109,7 @@ ul {
   }
 
   menu {
-    display: inline-flex;
-    margin: 0% 0% 0% -20%;
+    margin: 2% 0% 0% 1%;
   }
 
   li {
@@ -90,19 +118,20 @@ ul {
   }
 
   .head-and-foot {
-    height: 15%;
-    padding-left: 5%;
+    height: 11%;
+    padding-left: 2%;
   }
 
   .page {
-    margin-top: 23%;
+    margin-top: -12%;
+    text-align: center;
   }
 
   #logout {
     height: 0%;
     padding: 1%;
-    width: 46%;
-    margin: 25% -10% 0% 0%;
+    width: 157%;
+    margin: 14% 0% 0% 8%;
   }
 
   /* #complete.logo {
@@ -110,7 +139,7 @@ ul {
   } */
 
   #user-information {
-    margin-top: 70%;
+    margin-top: 40%;
   }
 
   #send {
@@ -188,8 +217,10 @@ ul {
 
   #wall {
     margin-top: 7%;
+    max-width: 32rem;
   }
 }
+
 
 /* Para tablets */
 @media only screen and (min-width: 600px) {
@@ -248,7 +279,7 @@ ul {
     padding: 2% 0% 2% 0%;
     display: flex;
     margin-top: -3%;
-    height: 35%;
+    height: 20%;
   }
 
   #logo {
@@ -257,22 +288,26 @@ ul {
 
   #complete-logo {
     display: block;
-    width: 31%;
-    height: 142%;
-    margin: -2% 0% 0% 4%;
+    width: 12%;
+    height: 105%;
+    margin: 1% 0% 0% 8%;
   }
 
   ul {
     margin: 30% 0% 0% 40%;
     display: -webkit-box;
   }
-  
-  li{
+
+  li {
     border: solid thin #0B0A06;
     margin-top: -15%;
   }
 
-  #logout{
+  .page {
+    margin-top: 12%;
+  }
+
+  #logout {
     margin: -4% 0% 0% 0%;
   }
 }

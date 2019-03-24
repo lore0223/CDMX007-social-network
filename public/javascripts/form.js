@@ -86,9 +86,11 @@ postButton.addEventListener('click', (event) => {
     db.ref(`wall/${newPostKey}`).update(postDataWithUser);
   })
   event.preventDefault();
-location.reload();
+  location.reload();
 })
 
+// Nombre de usuario
+const userMyName = document.getElementById('user-name').innerHTML = displayName;
 db.ref('users/').on('value', (snapshot) => {
   const allUsers = snapshot.val(); //retorna el objeto de usuarios de base de datos
   wall.innerHTML = '';
@@ -110,7 +112,7 @@ db.ref('users/').on('value', (snapshot) => {
                <div class="card-body">
                <p id="post-card" class="card-text">${element.message}</p>
                </div> 
-               <div id="${usersId}"><button id="${eachPost}" class = "trash-btn"><i class="far fa-trash-alt"></i></button>
+               <div id="${usersId}" ><button id="${eachPost}" class = "trash-btn"><i class="far fa-trash-alt"></i></button>
                <button >Editar publicación</button></div>
                </div>`)
         //identifica al usuario activo, y compara su id con los id de la base de datos
@@ -123,9 +125,8 @@ db.ref('users/').on('value', (snapshot) => {
       //sección perfil usuario
       //Primera parte
       if (firebase.auth().currentUser.uid === usersId) {
-      
-          document.getElementById('user-photo').innerHTML = `
-                    <img src = " ${photoURL} " alt = "Imagen de usuario">`
+        document.getElementById('user-photo').innerHTML = `
+                        <img src = " ${photoURL} "  class="img-thumbnail" alt = "Imagen de usuario" style="width: 100%">`;
         document.getElementById('user-name').innerHTML = usersName;
         //Segunda parte
         document.getElementById('nick-name').innerHTML = 
@@ -259,11 +260,15 @@ const validationState = (string) => {
 // const userPicture = document.getElementById('user-photo').innerHTML = `
 //   <img src = "${pictureUser}" alt = "Imagen de usuario">`
 
-// Nombre de usuario
-const userMyName = document.getElementById('user-name').innerHTML = displayName;
 
-const hamburguerMenu = document.getElementById('hamburger-menu');
-const hideMenu = document.getElementById('hide-menu');
-hamburguerMenu.addEventListener('click', () => {
-  hideMenu.classList.remove('hide');
+//Función de botón de hamburguesa
+const burgerBtn = document.getElementById('burger');
+burgerBtn.addEventListener('click', () => {
+  console.log('holi');
+  let bars = document.getElementById("header-buttons");
+  if (bars.style.display === "block") {
+    bars.style.display = "none";
+  } else {
+    bars.style.display = "block";
+  }
 })
