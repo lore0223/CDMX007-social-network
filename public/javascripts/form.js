@@ -78,7 +78,7 @@ postButton.addEventListener('click', (event) => {
     const postDataWithUser = {
       userId: usersData[user.uid].name,
     }
-    // console.log(postDataWithUser)
+
 
     const newPostKey = rootRef.child('post').push().key;
 
@@ -96,7 +96,7 @@ db.ref('users/').on('value', (snapshot) => {
     console.log(allUsers);
     const usersNickName = usersData[usersId].nickName; //obtenemos los nicknames de todos los usuarios
     const usersPosts = usersData[usersId].post; //obtenemos los posts de cada usuario
-    const usersPicture = usersData[usersId].photoUser;
+    let usersPicture = usersData[usersId].photoUser;
     const usersName = usersData[usersId].name;
     const usersPreferences = usersData[usersId].preferences;
     for (eachPost in usersPosts) {
@@ -104,7 +104,7 @@ db.ref('users/').on('value', (snapshot) => {
         const element = usersPosts[eachPost];
         console.log(element);
         console.log(eachPost)
-        wall.insertAdjacentHTML('afterend', `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        wall.insertAdjacentHTML('beforeend', `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
         <figure><img src = "${usersPicture}" alt = "Imagen de usuario"></figure>
         <div class="card-header">${usersNickName}</div>
                <div class="card-body">
@@ -123,13 +123,16 @@ db.ref('users/').on('value', (snapshot) => {
       //sección perfil usuario
       //Primera parte
       if (firebase.auth().currentUser.uid === usersId) {
-        document.getElementById('user-photo').innerHTML = `
-                        <img src = " ${photoURL} " alt = "Imagen de usuario">`;
+      
+          document.getElementById('user-photo').innerHTML = `
+                    <img src = " ${photoURL} " alt = "Imagen de usuario">`
         document.getElementById('user-name').innerHTML = usersName;
         //Segunda parte
-        document.getElementById('nick-name').innerHTML = `<br>${usersNickName}</br>`;
+        document.getElementById('nick-name').innerHTML = 
+                    `<br>${usersNickName}</br>`;
         //Tercera parte
-        document.getElementById('preferences').innerHTML = `<br>${usersPreferences}</br>`;
+        document.getElementById('preferences').innerHTML = 
+                     `<br>${usersPreferences}</br>`;
       }
     }
   }
@@ -138,7 +141,7 @@ db.ref('users/').on('value', (snapshot) => {
   console.log(deleteElement);
   for (let i = 0; i < deleteElement.length; i++) {
     deleteElement[i].addEventListener('click', (ev) => {
-      ///Alert para confirmar delete
+      ///Alert para confirmar que el usuario quiere cancelar la publicación
       const option = confirm("Estás seguro de que quieres eliminar tu publicación");
       if (option == true) {
         //message = "Mensaje Borrado";
@@ -258,3 +261,9 @@ const validationState = (string) => {
 
 // Nombre de usuario
 const userMyName = document.getElementById('user-name').innerHTML = displayName;
+
+const hamburguerMenu = document.getElementById('hamburger-menu');
+const hideMenu = document.getElementById('hide-menu');
+hamburguerMenu.addEventListener('click', () => {
+  hideMenu.classList.remove('hide');
+})

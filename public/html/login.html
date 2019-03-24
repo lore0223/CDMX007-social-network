@@ -9,9 +9,9 @@
   <title>TA: Registro</title>
 
   <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
   <link rel="stylesheet" href="../css/style-form.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
@@ -21,16 +21,18 @@
 
   <header class="head-and-foot">
     <img id="logo" src="../images/just-logo-sin-fondo.png" alt="imagen del logo tejiendo en azul">
-    <h4 id="personalised-welcome">Tejiendo en Azul</h4>
     <img id="complete-logo" src="../images/logo-red-sin-fondo-contraste.png" alt="imagen de Tejiendo en Azul">
+    <span ><i id= "hamburger-menu" class="fas fa-bars"></i></span>
+   <div id="hide-menu" class = " hide">
     <menu id = "general-menu">
       <ul>
         <li><a href="#" data-target="user-information" class="nav-link">Editar información personal</a></li>
         <li><a href="#" data-target="profile" class="nav-link">Mi perfil</a></li>
         <li><a href="#" data-target="user-wall" class="nav-link">Mi muro</a></li>
+        <button id="logout">Cerrar sesión</button>
       </ul>
-      <button id="logout">Cerrar sesión</button>
     </menu>
+  </div>
   </header>
 
   <!-- section login  -->

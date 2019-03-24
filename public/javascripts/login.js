@@ -19,11 +19,11 @@
     },
     // se usa popup para el ingreso del flujo de los provedores de IDP en lugar del predeterminado, redirecciona.
     signInFlow: 'popup',
-    signInSuccessUrl: "./login.html#user-information",
+    signInSuccessUrl: "#",
     signInOptions: [
       // Solo dejamos las líneas de las formas de registro que vamos a utilizar.
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
       //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
       //firebase.auth.GithubAuthProvider.PROVIDER_ID,
       firebase.auth.EmailAuthProvider.PROVIDER_ID,
@@ -39,16 +39,16 @@
 })();
 
 // Verificar correo de nuevo usuario
-const verifyEmail = () => {
-  const user = firebase.auth().currentUser;
-  user.sendEmailVerification().then(() => {
-    // Email sent.
-    console.log('enviando correo');
-  }).catch((error) => {
-    // An error happened.
-    console.log(error);
-  });
-}
+// const verifyEmail = () => {
+//   const user = firebase.auth().currentUser;
+//   user.sendEmailVerification().then(() => {
+//     // Email sent.
+//     console.log('enviando correo');
+//   }).catch((error) => {
+//     // An error happened.
+//     console.log(error);
+//   });
+// }
 
 //Acceso con Google
 const firebaseContainer = document.getElementById('firebaseui-auth-container');
@@ -57,9 +57,9 @@ firebaseContainer.addEventListener('click', () => {
   firebase.auth().signInWithRedirect(provider)
   .catch(e => console.log(e.message))
   firebase.auth().getRedirectResult().then(() => {
-    
+    console.log("Aquí estoy");
     //pide verificar el correo mediante una liga que llega a su cuenta de email
-    verifyEmail();
+    // verifyEmail();
     // window.location.replace("#user-information");
   }).catch(function (error) {
     // Handle Errors here.
@@ -100,7 +100,9 @@ const observerFn = () => {
       console.log('hay usuario activo')
       // displayName = user.displayName;
       // email = user.email;
-      // photoURL = user.photoURL;
+      photoURL = user.photoURL === undefined ? photoURL = '../images/perfil.png': photoURL = user.photoURL;
+      console.log(photoURL);
+      
       // const emailVerified = user.emailVerified;
       // const isAnonymous = user.isAnonymous;
       // uid = user.uid;
@@ -124,7 +126,7 @@ const observerFn = () => {
     }
   })
 }
-// observerFn();
+ observerFn();
 
 // Cerrar sesión
 const logOut = () => {
