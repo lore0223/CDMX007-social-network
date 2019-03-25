@@ -1,6 +1,6 @@
 # Red Social: Tejiendo en Azul
 ### Nuestro primer contacto con las redes sociales 
-Las tres integrantes del equipo conocimos el mundo de las redes sociales mediante [hi5](https://hi5.com/). Era un mundo nuevo por descubrir, nos gustaba que podíamos personalizar el fondo de nuestro muro. 
+Las tres integrantes del equipo: [Claudia](https://github.com/claudiaferrusca), [Lore](https://github.com/lore0223), y [Pau-za](https://github.com/Pau-za), conocimos el mundo de las redes sociales mediante [hi5](https://hi5.com/). Era un mundo nuevo por descubrir, y nos gustaba que podíamos personalizar el fondo de nuestro muro, e interactuar con nuestros amigos de la vida real, pero también podíamos conocer a gente nueva con la que compartíamos algunos intereses. 
 
 ### Necesidades de nuestros usuarios
 La integrante del equipo Paulina, tuvo la oportunidad de darle clases a estudiantes de bachillerato con todo tipo de discapacidad. Y se dio cuenta de que los estudiantes que se tenían algún [Trastorno del Espectro Autista](https://www.who.int/features/qa/85/es/), solían tener dificultades para socializar e interactuar con sus compañeros. Los estudiantes con las características mencionadas querían tener amigos, pero no sabían cómo hacerlo, y algunos de ellos buscaban relacionarse con personas mediante redes sociales como [Facebook](https://www.facebook.com/). Sin embargo, Paulina se dio cuenta de que los estudiantes se ponían en situaciones de riesgo al realizar la práctica de agregar como sus "amigos/as" a personas que no conocían. 
@@ -48,7 +48,7 @@ A continuación se presentan las gráficas con la información que pudimos obten
 
 ### Principales funcionalidades del producto
 
-Actaualmente la página le permite al usuario registrarse con su cuenta de [Facebook](https://www.facebook.com/) y de [Google](https://www.google.com/). 
+Actualmente la página le permite al usuario registrarse con su cuenta de [Facebook](https://www.facebook.com/) y de [Google](https://www.google.com/). 
 
 En cuanto el usuario ingresa a la red social, tiene que llenar un formulario mediante el cual obtenemos su información personal, la cual guarda en nuestra base de datos, alojada en [Firebase](https://firebase.google.com/). 
 
@@ -63,12 +63,12 @@ Finalmente el usuario puede cerrar sesión con la seguridad de que su informaci�
 #### Parte Técnica
 En las pruebas de usabilidad nos dimos cuenta de que tenemos que trabajar en algunos detalles de la página, como el registro con correo electrónico. 
 
-![Usability_test]()
-
 #### Experiencia del Usuario
 Descubrimos que hay algunas cosas que no entienden los usuarios sobre el flujo de la página. Como que si sale el formulario de registro, deben llenarlo antes de poder navegar por la página. 
 
 Por lo tanto actualmente estamos trabajando en escribir instrucciones muy específicas en cada página de la red social para que los usuarios puedan realizar las tareas que se necesitan de manera sencilla y clara.
+
+![Usability_test](https://github.com/Pau-za/CDMX007-social-network/blob/master/public/images/UT/WhatsApp%20Image%202019-03-24%20at%205.56.51%20PM.jpeg)
 
 ### Cómo asegurarnos de que los usuarios utilicen la red
 
@@ -77,15 +77,15 @@ Puede ser utilizada por los profesores para iformarles sobre las tareas, o compa
 
 ## Historias de usuario
 
-#### Yo, como usuario, quiero poder registrarme en la página "Tejiendo en Azul" para poder comenzar a interactuar con otras personas dentro del Espectro Autista.
+* Yo, como usuario, quiero poder registrarme en la página "Tejiendo en Azul" para poder comenzar a interactuar con otras personas dentro del Espectro Autista.
 
-#### Yo, como usuario, quiero poder llenar un formulario de registro para que se guarde mi información personal en una base de datos.
+* Yo, como usuario, quiero poder llenar un formulario de registro para que se guarde mi información personal en una base de datos.
 
-#### Yo, como usuario, quiero poder ver reflejada mi información personal en la página de mi perfil para que mis amigos puedan observarla (en el futuro).
+* Yo, como usuario, quiero poder ver reflejada mi información personal en la página de mi perfil para que mis amigos puedan observarla (en el futuro).
 
-#### Yo, como usuario, quiero poder hacer publicaciones para poder verlas reflejadas en un muro general, junto a las publicaciones de los demás usuarios de la red social.
+* Yo, como usuario, quiero poder hacer publicaciones para poder verlas reflejadas en un muro general, junto a las publicaciones de los demás usuarios de la red social.
 
-#### Yo, como usuario, quiero poder eliminar mis propias publicaciones siempre que lo desee para poder tener mejor control de mi actividad en la red social.
+* Yo, como usuario, quiero poder eliminar mis propias publicaciones siempre que lo desee para poder tener mejor control de mi actividad en la red social.
 
 
 ## Prototipos: Tejiendo en Azul
