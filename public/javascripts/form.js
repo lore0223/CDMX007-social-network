@@ -109,7 +109,7 @@ db.ref('users/').on('value', (snapshot) => {
       if (usersPosts.hasOwnProperty(eachPost)) {
         const element = usersPosts[eachPost];
         wall.insertAdjacentHTML('afterend', `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-        <figure><img src = "${usersPicture}" alt = "Imagen de usuario"></figure>
+        <figure><img src = "${usersPicture}" alt = "Imagen de usuario" width = "30%" height = "auto" class = "img-thumbnail"></figure>
         <div class="card-header">${usersNickName}</div>
         <div class="card-body">
         <p id="post-card" class="card-text">${element.message}</p>
@@ -128,7 +128,7 @@ db.ref('users/').on('value', (snapshot) => {
       //Primera parte 
       if (firebase.auth().currentUser.uid === usersId) {
         document.getElementById('user-photo').innerHTML = `
-        <img src = " ${photoURL} "  class="img-thumbnail" alt = "Imagen de usuario" style="width: 100%">`;
+        <img src = " ${photoURL} "  class="img-thumbnail" alt = "Imagen de usuario" width = "100%" height = "auto">`;
         document.getElementById('user-name').innerHTML = usersName;
         //Segunda parte
         document.getElementById('nick-name').innerHTML =
